@@ -1,7 +1,6 @@
 import React from 'react'
-import { faBell, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Gener from './Gener'
+import { Bell, InfoCircle, PlayCircle } from 'react-bootstrap-icons';
 
 function ComingSoonComponent({movie}) {
 
@@ -16,17 +15,12 @@ function ComingSoonComponent({movie}) {
                      </div>
                      <div className="options-soon">
                              <div className="option-soon">
-                             <FontAwesomeIcon
-                                icon={faBell}
-                                className="soon-icon"
-                             ></FontAwesomeIcon>
+                        
+                             <Bell className="soon-icon" />
                              <span className="icon-txr">Remind me</span>
                              </div>
                              <div className="option-soon">
-                             <FontAwesomeIcon
-                                icon={faInfoCircle}
-                                className="soon-icon"
-                             ></FontAwesomeIcon>
+                             <InfoCircle className="soon-icon" />
                              <span className="icon-txr">Remind me</span>
                              </div>
                      </div>

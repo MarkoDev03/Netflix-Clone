@@ -1,11 +1,15 @@
 .notification-bar{
-    width: 93%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 60px;
+    position: fixed;
+    top: 60px;
     margin-inline: auto;
     height: auto;
+    padding-bottom: 10px;
+    background: rgba(0, 0, 0, 0.87);
+
 }
 .application{
     height: 100vh;
@@ -16,6 +20,7 @@
     justify-content: space-around;
     align-items: center;
     color: white;
+    margin-left:15px;
 }
 .left-notification span{
     margin-left: 13px;
@@ -31,7 +36,7 @@
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
-    margin-top: 6px;
+    padding-top: 85px;
 }
 
 .card-soon{
@@ -46,9 +51,10 @@
 }
 
 .image-soon{
-    width: 95%;
+    width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 0px;
+    border-bottom: 2px solid red;
 }
 
 .data-soon{
@@ -95,12 +101,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top:10px;
+    margin-top:0px;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
 .soon-name-banner{
     width: 50%;
     color: red;
+    font-family: 'Lobster Two', cursive;
+    font-size: large;
 }
 
 .options-soon{
@@ -126,4 +134,5 @@
 .icon-txr{
     color: gray;
     font-size: 12px;
+    margin-top: 6px;
 }

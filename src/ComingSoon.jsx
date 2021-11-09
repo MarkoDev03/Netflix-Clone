@@ -67,7 +67,8 @@ function ComingSoon() {
               )
           );
 
-          setAllMovies(moviesIn);
+          localStorage.setItem("allmovies",JSON.stringify(moviesIn))
+          setAllMovies(localStorage.getItem("allmovies") ? JSON.parse(localStorage.getItem("allmovies")) : moviesIn);
         }
     
         FetchDataFromAPI();
@@ -84,12 +85,12 @@ function ComingSoon() {
                    <Bell size={24} color="white" style={{marginLeft:'-5px'}} />
                    <span>Notifications</span>
                 </div>
-                <ChevronRight size={24} color="white" />
+                <ChevronRight size={24} color="white" style={{marginRight:'13px'}} />
             </div>
             { <div className="soon-wrapper">
                 {
                     movies.map((movie) => (        
-                      <ComingSoonComponent movie={movie} />
+                      <ComingSoonComponent movie={movie} data-aos="fade-up" />
                     ))
                 }
             </div> }
