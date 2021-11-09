@@ -80,9 +80,9 @@ function ComingSoon() {
 
       setTimeout(() => {
       setInterval(() => {
-         // console.log(document.getElementById("all-soon-movies").scrollTop)
+
          movies.forEach((movie) => {
-         if (document.getElementById(movie.id).offsetTop < document.getElementById("all-soon-movies").scrollTop) {
+         if (document.getElementById(movie.id).offsetTop < document.getElementById("all-soon-movies").scrollTop + 97) {
             document.getElementById(movie.id).classList.add("overlay-soon")
             
          } else {
@@ -90,7 +90,7 @@ function ComingSoon() {
          }
          })
         }, 100);
-      }, 1000);
+      }, 2000);
     return (
         <div className='application'>
           <HeaderTab headline="Coming soon" />
