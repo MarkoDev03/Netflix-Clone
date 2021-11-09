@@ -3,13 +3,14 @@ import Footer from './Footer'
 import Axios from "./axios";
 import Requests from "./requests";
 import HeaderTab from './HeaderTab';
-import { Bell, ChevronRight } from 'react-bootstrap-icons';
-import ComingSoonComponent from './ComingSoonComponent'
+import { Bell, ChevronRight, InfoCircle } from 'react-bootstrap-icons';
+import Gener from './Gener'
 import './comingsoon.css'
 import Aos from 'aos'
 import "aos/dist/aos.css"
 
 function ComingSoon() {
+  const base_image_url = "https://image.tmdb.org/t/p/original/";
 
     var [movies, setAllMovies] = useState([]);
 
@@ -77,6 +78,19 @@ function ComingSoon() {
 
       }, []);
 
+      setTimeout(() => {
+      setInterval(() => {
+         // console.log(document.getElementById("all-soon-movies").scrollTop)
+         movies.forEach((movie) => {
+         if (document.getElementById(movie.id).offsetTop < document.getElementById("all-soon-movies").scrollTop) {
+            document.getElementById(movie.id).classList.add("overlay-soon")
+            
+         } else {
+          document.getElementById(movie.id).classList.remove("overlay-soon")
+         }
+         })
+        }, 100);
+      }, 1000);
     return (
         <div className='application'>
           <HeaderTab headline="Coming soon" />
@@ -85,12 +99,41 @@ function ComingSoon() {
                    <Bell size={24} color="white" style={{marginLeft:'-5px'}} />
                    <span>Notifications</span>
                 </div>
-                <ChevronRight size={24} color="white" style={{marginRight:'13px'}} />
+                <ChevronRight size={24} color="white" style={{marginRight:'15px'}} />
             </div>
-            { <div className="soon-wrapper">
+            { <div className="soon-wrapper" id="all-soon-movies">
                 {
                     movies.map((movie) => (        
-                      <ComingSoonComponent movie={movie} data-aos="fade-up" />
+                        <div className='card-soon' id={movie.id}>
+                 <img src={base_image_url + movie.backdrop_path} alt="" className="image-soon" />
+                 <div className="data-soon-banner">
+                     <div>
+                     <h4 className="soon-name-banner"> {movie?.original_name ||movie?.original_title ||movie?.name ||movie?.title}</h4>
+                     </div>
+                     <div className="options-soon">
+                             <div className="option-soon">
+                        
+                             <Bell className="soon-icon" />
+                             <span className="icon-txr">Remind me</span>
+                             </div>
+                             <div className="option-soon">
+                             <InfoCircle className="soon-icon" />
+                             <span className="icon-txr">Remind me</span>
+                             </div>
+                     </div>
+                 </div>
+                 <div className="data-soon">
+                 <span className="soon-time">
+                       Coming November 19
+                     </span>
+                     <h3 className="soon-name"> {movie?.original_name ||movie?.original_title ||movie?.name ||movie?.title}</h3>
+                     <span className="soon-desc">
+                        {movie.overview}
+                     </span>
+                 <Gener />
+                 </div>
+             </div>
+                      
                     ))
                 }
             </div> }

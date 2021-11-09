@@ -5,9 +5,13 @@ import { Bell, InfoCircle } from 'react-bootstrap-icons';
 function ComingSoonComponent({movie}) {
 
     const base_image_url = "https://image.tmdb.org/t/p/original/";
+
+
+
     return (
+
         <React.Fragment>
-             <div className='card-soon'>
+             <div className='card-soon' id={movie.id}>
                  <img src={base_image_url + movie.backdrop_path} alt="" className="image-soon" />
                  <div className="data-soon-banner">
                      <div>
