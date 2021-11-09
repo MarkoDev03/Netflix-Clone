@@ -1,13 +1,13 @@
 import React, { useLayoutEffect, useState } from 'react'
-import { Swiper, SwiperSlide } from "swiper/react";
 import Footer from './Footer'
 import Axios from "./axios";
 import Requests from "./requests";
 import HeaderTab from './HeaderTab';
 import { Bell, ChevronRight } from 'react-bootstrap-icons';
 import ComingSoonComponent from './ComingSoonComponent'
-import "swiper/swiper.min.css";
 import './comingsoon.css'
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 function ComingSoon() {
 
@@ -72,29 +72,29 @@ function ComingSoon() {
     
         FetchDataFromAPI();
 
+    Aos.init({duration:2000})
+
       }, []);
 
     return (
-        <React.Fragment>
+        <div className='application'>
           <HeaderTab headline="Coming soon" />
-            <div className='notification-bar'>
+            <div className='notification-bar my'>
                 <div className="left-notification">
-                   <Bell size={24} color="white" />
+                   <Bell size={24} color="white" style={{marginLeft:'-5px'}} />
                    <span>Notifications</span>
                 </div>
                 <ChevronRight size={24} color="white" />
             </div>
-            { <Swiper className="soon-wrapper">
+            { <div className="soon-wrapper">
                 {
-                    movies.map((movie) => (       
-                           <SwiperSlide key={movie.id}>
-                               <ComingSoonComponent movie={movie} />
-                           </SwiperSlide>
+                    movies.map((movie) => (        
+                      <ComingSoonComponent movie={movie} />
                     ))
                 }
-            </Swiper> }
+            </div> }
           <Footer />
-        </React.Fragment>
+        </div>
     )
 }
 

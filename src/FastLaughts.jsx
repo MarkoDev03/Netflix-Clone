@@ -3,18 +3,8 @@ import Footer from './Footer'
 import Axios from "./axios";
 import Requests from "./requests";
 import { Swiper, SwiperSlide } from "swiper/react";
-//import SwiperCore, { Pagination } from "swiper/core";
-//import EffectCards from 'swiper/core'
 import FastlaughtsMovie from "./FastLaughtsMovie";
 import "swiper/swiper.min.css";
-//import "swiper";
-//import "swiper/components/pagination/pagination.min.css";
-//import "swiper/css/effect-cards"
-//import 'swiper/modules/effect-cards/react'
-//import 'https://unpkg.com/swiper/swiper-bundle.min.css'
- //import "swiper/core/modules/react/"
-
- //SwiperCore.use([EffectCards]);
 
 export const FastLaughtsMovieContext = createContext(null);
 
