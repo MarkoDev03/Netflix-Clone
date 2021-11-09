@@ -1,6 +1,6 @@
 import React from 'react'
 import Gener from './Gener'
-import { Bell, InfoCircle, PlayCircle } from 'react-bootstrap-icons';
+import { Bell, InfoCircle } from 'react-bootstrap-icons';
 
 function ComingSoonComponent({movie}) {
 
