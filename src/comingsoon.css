@@ -1,0 +1,19 @@
+.notification-bar{
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    margin-inline: auto;
+}
+.left-notification{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+.left-notification span{
+    margin-left: 13px;
+    font-weight: 400;
+    font-size: 20px;
+}

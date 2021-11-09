@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@200&display=swap');
+.loginScreen {
+  width: 100%;
+  height: 100vh;
+  animation: fadeIn 950ms;
+
+  background-size: cover;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/9b1cc4b3-40f2-4bfa-9006-28f7a0aedb45/c1535521-dd00-4b62-816b-2f6b9df96426/RS-en-20210513-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+}
+.banner-center {
+  width: 37%;
+}
+.banner_content__center {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  animation: fadeIn 800ms;
+}
+
+.chevronRight{
+  margin-left: 13px;
+}
+
+.login__gradient {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+
+  position: fixed;
+  top: 0px;
+}
+
+.headline__login {
+  font-size: 65px;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.headline__login__h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 23px;
+  margin-top: -10px; /*!!!*/
+  font-weight: 100;
+}
+
+.headline__login__h3_2{
+  font-family: 'KoHo', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+.inpit__field-Mail{
+  padding-top: 18px;
+  padding-bottom: 18px;
+  width: 70%;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding-left: 10px;
+}
+.Mail__sing_in:active,.Mail__sing_in:focus{
+  box-shadow: 0px 0px 5px 3px red;
+  transition: 295ms;
+  cursor: pointer;
+}
+::placeholder{
+  font-size: 15px;
+  margin-left: 7px;
+}
+.login_div{
+  width: 40%;
+  background-color: rgb(2, 2, 2);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.button-get-started{
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  background-color: red;
+  color: white;
+  border: none;
+  outline: none;
+  text-align: center;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  cursor: pointer;
+}
+.button-get-started:hover{
+  background-color: rgb(145, 0, 0);
+  transition: 285ms;
+}
+
+@media only screen and (max-width:1700px) and (min-width:300px) {
+  .headline__login {
+    font-size: 40px;
+  }
+  .headline__login__h3 {
+    font-size: 22px;
+  }
+  
+  .headline__login__h3_2{
+    font-family: 'KoHo', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+  }
+  .inpit__field-Mail{
+    padding-top: 13.5px;
+    padding-bottom: 13.5px;
+    width: 67%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+  }
+  .banner-center{
+    width: 90%;
+  }
+  .login_div{
+    width: 90%;
+  }
+  .button-get-started{
+    font-size: 14px;
+    padding-top: 14.5px;
+    padding-bottom:14.5px;
+    padding-left: 5px;
+    padding-right: 5px
+  }
+  .chevronRight{
+   display: none;
+  }
+
+}
+
+@keyframes leaves {
+  0% {
+      transform: scale(1.0);
+  }
+  100% {
+      transform: scale(2.0);
+  }
+}

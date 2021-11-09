@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Goblin+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+.profile{
+   margin: auto;
+   margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 900px;
+}
+
+.edit-headline{
+    font-size: 65px;
+    font-family: "Hind Siliguri", sans-serif;
+    letter-spacing: 1px;
+    font-weight: 500;
+    width: 100%;
+    display: block;
+    text-align: left;
+    border-bottom: .5px solid rgb(97, 97, 97);
+    padding: 0px;
+    height: 84px;
+}
+.profile__wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-top: -35px;
+    text-align: left;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+.info-user{
+    width: calc(100% - 120px);
+    height: 100px;
+}
+.username{
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: rgb(161, 161, 161);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 27px;
+    font-family: "Poppins", sans-serif;
+}
+
+.plans{
+    font-family: "Poppins", sans-serif;
+    font-size: 23px;
+
+}
+.plans-overview{
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  margin-top: 10px;
+    flex-direction: column;
+    margin-left: 120px;
+    padding-top: 0px;
+}
+.plan{
+    width:100% ;
+    height: auto; 
+}
+.Renwal{
+    color: rgb(196, 196, 196);
+}
+.premium{
+    border-bottom: .5px solid grey;
+    margin-top: 7px;
+}
+
+.plan-offer{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.subscribe{
+    color: white;
+    background-color: red;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 20px;
+    padding-right:20px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.plan-data{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 50px;
+}
+.plan-name{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.plan-quality{
+    margin-top: -20px;
+    color: rgb(173, 173, 173);
+}
+.grey-button{
+    background-color: rgb(173, 173, 173);
+    color: white;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 20px;
+    padding-right:20px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.grey-button:hover{
+    transition: 285ms;
+    background-color: rgb(129, 129, 129);
+}
+
+
+.logout-btn{
+    color: white;
+    background-color: red;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: none;
+    outline: none;
+    font-size: 28px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left:120px ;
+}
+.logout-btn:hover,.subscribe:hover{
+    background-color: rgb(155, 3, 3);
+    transition: 285ms;
+}
+
+.user-profile{
+    height: 100vh;
+    overflow-y: hidden;
+    animation: load 500ms;
+}
+
+
+@keyframes load{
+    0%{transform: translate(100%);height: 100vh;}
+    100%{transform: translate(0%);height: 100vh;}
+}
+
+
+@media only screen and (max-width:923px) and (min-width:535px) {
+    .profile{    
+         width: 90%;
+     }
+    
+     .username{
+         font-size: 20px;
+     }
+     .plans{
+        font-size: 20px;    
+    }
+    .logout-btn{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 0px;
+        width: 100%;
+        font-size: 20px;
+    }
+    .plans-overview{
+       width:100%;     
+        margin-left: 0px;
+        padding-top: 0px;
+    }
+    .logo{
+        width: 80px;
+        height: 80px;
+    }
+    .username{
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 17px;
+    }
+    .info-user{
+        width: calc(100% - 90px);
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width:535px) and (min-width:300px) {
+    .profile{    
+         width: 90%;
+     }
+     .username{
+         font-size: 20px;
+     }
+     .plans{
+        font-size: 15px;    
+    }
+    .logout-btn{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 0px;
+        width: 100%;
+        font-size: 20px;
+    }
+    .plans-overview{
+       width:100%;     
+        margin-left: 0px;
+        padding-top: 0px;
+    }
+    .logo{
+        width: 73px;
+        height: 73px;
+    }
+    .username{
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 17px;
+    }
+    .info-user{
+        width: calc(100% - 80px);
+        height: 100px;
+    }
+    .subscribe,.grey-button{
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-left: 20px;
+        padding-right:20px;
+        font-size: 17px;
+    }
+    .edit-headline{
+    font-size: 45px;
+    font-family: "Hind Siliguri", sans-serif;
+    letter-spacing: 1px;
+    font-weight: 500;
+    width: 100%;
+    display: block;
+    text-align: left;
+    border-bottom: .5px solid rgb(97, 97, 97);
+    padding: 0px;
+    height: auto;
+    margin-bottom: 40px;
+}
+}

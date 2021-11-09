@@ -1,0 +1,29 @@
+.showup-avatar{
+    height: 100vh;
+    animation: loadAvatar 400ms;
+}
+@keyframes loadAvatar{
+    0%{transform: translate(100%);height: 100vh;}
+    100%{transform: translate(0%);height: 100vh;}
+}
+.avatar-row{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column; 
+}
+.swiper-avatar{
+    margin-top: -20px;
+    margin-left: 10px;/*ovo*/
+    width: 100%;
+}
+.swiper_slide_avatar{
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    background-color: rgba(124, 124, 124,0.4);
+    transition: transform 350ms;
+    border-radius: 5px;
+    cursor: grab;
+    animation: fader 400ms;
+}

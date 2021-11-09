@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Goblin+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+.sign__up{
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 60px;
+    box-shadow: 0px 0px 10px 10px black;
+    animation: fadeIn 800ms;
+    border-radius: 10px;
+    
+}
+.Mail__sing_in{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    margin-top: 20px;
+    width: 390px;
+    padding-left: 10px;
+    border-radius: 7px;
+    color: rgb(43, 43, 43);
+    font-family: "Poppins", sans-serif;
+    
+}
+.submit-btn{
+    background-color: red;
+    margin-top: 30px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: white;
+   width: 80%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 400px;
+    border-radius: 5px; 
+
+}
+.submit-btn:hover{
+    transition: 285ms;
+    background-color: rgb(209, 1, 1);
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+
+.headline__row_3{
+    font-family: "Hind Siliguri", sans-serif;
+    letter-spacing: 1px;
+    font-weight: 100;
+    font-size: 55px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.new{
+    color: grey;
+}
+.signup{
+    color: white;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:500px) and (min-width:300px){
+    .sign__up{
+   width: 90%;
+   padding: 10px;
+   justify-content: center;
+   align-items: center;
+    }
+    .Mail__sing_in,.submit-btn{
+        width: 87%;
+        padding-left: 10px;
+    }
+    .Mail__sing_in{
+        width: 84%;
+    }
+}
+.fadeIn {
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 300ms;
+}
+
+    .fadeIn.first {
+        -webkit-animation-delay: 0.1s;
+        -moz-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+    }
+
+    .fadeIn.second {
+        -webkit-animation-delay: 0.25s;
+        -moz-animation-delay: 0.25s;
+        animation-delay: 0.25s;
+    }
+
+    .fadeIn.third {
+        -webkit-animation-delay: 0.35s;
+        -moz-animation-delay: 0.35s;
+        animation-delay: 0.35s;
+    }
+
+    .fadeIn.fourth {
+        -webkit-animation-delay: 0.42s;
+        -moz-animation-delay: 0.42s;
+        animation-delay: 0.42s;
+    }
+    .fadeIn.fifth{
+        -webkit-animation-delay: 0.49s;
+        -moz-animation-delay:0.49s;
+        animation-delay: 0.49s;
+    }
+    .fadeIn.sixth{
+        -webkit-animation-delay: 1.4s;
+        -moz-animation-delay: 1.4s;
+        animation-delay: 1.4s;
+    }
+
+
+
+
+    /*2*/
+    .fadeIn2 {
+        opacity: 0;
+        -webkit-animation: fadeIn2 ease-in 1;
+        -moz-animation: fadeIn2 ease-in 1;
+        animation: fadeIn2 ease-in 1;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-duration: 1s;
+        -moz-animation-duration: 1s;
+        animation-duration: 300ms;
+    }
+    
+        .fadeIn2.first2 {
+            -webkit-animation-delay: 0.1s;
+            -moz-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+    
+        .fadeIn2.second2 {
+            -webkit-animation-delay: 0.25s;
+            -moz-animation-delay: 0.25s;
+            animation-delay: 0.25s;
+        }
+    
+        .fadeIn2.third2 {
+            -webkit-animation-delay: 0.35s;
+            -moz-animation-delay: 0.35s;
+            animation-delay: 0.35s;
+        }
+    
+        .fadeIn2.fourth2 {
+            -webkit-animation-delay: 0.42s;
+            -moz-animation-delay: 0.42s;
+            animation-delay: 0.42s;
+        }
+        .fadeIn2.fifth2{
+            -webkit-animation-delay: 0.49s;
+            -moz-animation-delay:0.49s;
+            animation-delay: 0.49s;
+        }
+        .fadeIn.sixth{
+            -webkit-animation-delay: 1.4s;
+            -moz-animation-delay: 1.4s;
+            animation-delay: 1.4s;
+        }
+
+@keyframes fadeIn {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+
+  @keyframes fadeIn2 {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+  .jumpIn{
+     animation: scaleIn 100ms ease-in-out;   
+  }
+
+  @keyframes scaleIn {
+    0%{transform: scale(0);}
+    50%{transform: scale(1.2);}
+    10%{transform: scale(1);}
+  }
+  

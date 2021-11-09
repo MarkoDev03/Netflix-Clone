@@ -1,0 +1,153 @@
+.navbar {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+background-image: linear-gradient(
+    360deg,
+    transparent,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0,0.8)
+  );
+  z-index: 9;
+  transition: all 0.4s;
+  transition-timing-function: ease-in;
+  
+  font-size: 20px;
+}
+.headline-height {
+  height: 45px;
+}
+
+.nav_blacks {
+  background: rgba(0, 0, 0, 0.87);
+}
+
+.netflix-img {
+  height: 40px;
+  margin-right: 20px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.left-hand,
+.right-hand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  margin-left: 40px;
+}
+.whoswathcing {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+.right-hand {
+  width: 150px;
+  margin-right: 40px;
+  font-size: 15px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45px;
+}
+
+.media-search {
+  font-size: 30px;
+  color: white;
+  display: none;
+}
+.burger {
+  color: red;
+  font-size: 32px;
+  display: none;
+}
+.sign-up {
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 19px;
+  margin-right: 30px;
+}
+
+.sign-up:hover {
+  background-color: rgb(230, 0, 0);
+  transition: 285ms;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 100px) {
+  .link {
+    display: none;
+  }
+  .burger {
+    display: block;
+    font-size: 24px;
+  }
+  .left-hand {
+    margin-left: 10px;
+    width: 135px;
+  }
+  .right-hand {
+    width: 140px;
+    margin: 0px;
+    margin-right: 5px;
+    font-size: 20px;
+  }
+  .switch {
+    display: none;
+  }
+  .media-search {
+    display: block;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .netflix-img {
+    height: 40px;
+    margin-left: 10px;
+  }
+  .sign-up {
+    margin-right: 0px;
+    margin-right: 10px;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+.set-wdth{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.set-wdth-links{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 18px;
+  font-weight: 100;
+  margin-bottom: 6px;
+}

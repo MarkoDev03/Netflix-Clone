@@ -1,0 +1,33 @@
+.footer{
+    display: none;
+}
+@media only screen and (max-width:900px) {
+    .footer{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-block: 12px;
+        background-color: rgb(17, 17, 17);
+       
+    }
+}
+.block-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 24%;
+    fill: rgb(133, 132, 132);
+    color: rgb(133, 132, 132);
+    text-decoration: none;
+}
+.block-footer span{
+    font-size: 10px;
+    margin-top: 5px;
+}
+.active-fill{
+    fill: white;
+    color: white;
+    transition: 285ms;
+}
