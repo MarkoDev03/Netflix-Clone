@@ -3,10 +3,11 @@ import Footer from './Footer'
 import Axios from "./axios";
 import Requests from "./requests";
 import HeaderTab from './HeaderTab';
-import { Bell, ChevronRight, InfoCircle } from 'react-bootstrap-icons';
+import { Bell, ChevronRight, InfoCircle, ChevronUp } from 'react-bootstrap-icons';
 import Gener from './Gener'
 import './comingsoon.css'
 import Aos from 'aos'
+import $ from 'jquery'
 import "aos/dist/aos.css"
 
 function ComingSoon() {
@@ -78,6 +79,10 @@ function ComingSoon() {
 
       }, []);
 
+      const scrollToTop = () => {
+      $("#all-soon-movies").animate({ scrollTop: 0 }, "slow");
+      }
+
       setTimeout(() => {
       setInterval(() => {
 
@@ -94,14 +99,14 @@ function ComingSoon() {
     return (
         <div className='application'>
           <HeaderTab headline="Coming soon" />
+            { <div className="soon-wrapper" id="all-soon-movies">
             <div className='notification-bar my'>
                 <div className="left-notification">
                    <Bell size={24} color="white" style={{marginLeft:'-5px'}} />
                    <span>Notifications</span>
                 </div>
-                <ChevronRight size={24} color="white" style={{marginRight:'15px'}} />
+                <ChevronRight size={24} color="white" style={{marginRight:'20px'}} />
             </div>
-            { <div className="soon-wrapper" id="all-soon-movies">
                 {
                     movies.map((movie) => (        
                         <div className='card-soon' id={movie.id}>
@@ -137,6 +142,9 @@ function ComingSoon() {
                     ))
                 }
             </div> }
+            <div className="toTop" onClick={scrollToTop}>
+            <ChevronUp size={26} color="white"/>
+            </div>
           <Footer />
         </div>
     )

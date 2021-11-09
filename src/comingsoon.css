@@ -3,14 +3,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 60px;
+   
+    
     margin-inline: auto;
     height: auto;
     padding-bottom: 10px;
     background: rgba(0, 0, 0, 0.87);
     z-index: 991 ;
-
+   margin-bottom: 10px;
 }
 .application{
     height: 100vh;
@@ -32,25 +32,26 @@
 .overlay-soon{
     width: 100% !important;
     height: fit-content !important;
-    filter: brightness(38%);
+    filter: brightness(35%);
     display: flex !important;
     
     justify-content: center !important;
     align-items: center !important;
 
     z-index: 99 !important;
-    transition: 200ms;
+    transition: 180ms ease-out;
 }
 
 .soon-wrapper{
-    height: calc(100vh - 155px);
+    height: calc(100vh - 130px);
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
-    padding-top: 85px;
+    margin-top: 60px;
+    
 }
 
 .card-soon{
@@ -60,7 +61,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 30px;
     margin-bottom: 35px;
    
     z-index: 1;
@@ -155,4 +155,20 @@
     color: gray;
     font-size: 12px;
     margin-top: 6px;
+}
+
+.toTop{
+    position: fixed;
+    bottom: 75px;
+    background-color: red;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    margin-inline: auto;
+    left: calc(50% - 65px);
+    right: calc(50% - 65px);
 }
