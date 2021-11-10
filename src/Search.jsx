@@ -1,9 +1,9 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Search as SearchIcon } from 'react-bootstrap-icons';
 import {
   faArrowLeft,
   faSortDown,
-  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory, Link } from "react-router-dom";
 import { auth } from "./Firebase";
@@ -147,10 +147,10 @@ function searchAPI() {
       <div className="search-bar-wrpe">
 
       <div className="search-bar">
-        <FontAwesomeIcon
-          icon={faSearch}
+        <SearchIcon
+  
           className="search-icon-search"
-        ></FontAwesomeIcon>
+        />
         <input
           type="search"
           name=""

@@ -34,7 +34,7 @@
     align-items: center;
 }
 .search-icon-search{
-    font-size: 30px;
+    font-size: 26px;
     color: #d2d2d2;
 }
 #search{
@@ -65,6 +65,6 @@
     }
     
     .search-icon-search{
-       margin-left: 5px;
+       margin-left: 15px;
     }
 }
