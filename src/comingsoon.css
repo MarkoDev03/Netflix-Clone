@@ -32,7 +32,7 @@
 .overlay-soon{
     width: 100% !important;
     height: fit-content !important;
-    filter: brightness(35%);
+    filter: brightness(30%);
     display: flex !important;
     
     justify-content: center !important;
