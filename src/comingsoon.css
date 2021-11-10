@@ -43,7 +43,7 @@
 }
 
 .soon-wrapper{
-    height: calc(100vh - 130px);
+    height: calc(100vh - 117px);
     width: 100%;
     display: flex;
     justify-content: flex-start;
