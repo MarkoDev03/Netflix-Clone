@@ -195,7 +195,6 @@ function searchAPI() {
       </div>
       </div>
       <div className="list-div" style={{ marginTop: "125px" }}>
-
         <div className="list-wrapper" id="list">
           {results.length !== 0 ? (
           results.map((item) => (
