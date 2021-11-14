@@ -3,6 +3,7 @@ import Row from "./Row";
 import Requests from "./requests";
 import Banner from "./Banner";
 import NavBar from "./Navbar";
+import Shuffle from "./Shuffle";
 import Footer from "./Footer";
 import { useHistory } from "react-router-dom";
 import "./App.css";
@@ -58,6 +59,11 @@ function App({ user }) {
         fetchURL={Requests.fetchWestern}
         key={111}
       ></Row>
+      {
+        window.innerWidth < 900 ? (
+          <Shuffle />
+        ) : ""
+      }
       <Row
         title="Action Movies and Shows"
         fetchURL={Requests.fetchActionMovies}
