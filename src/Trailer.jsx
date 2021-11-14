@@ -28,6 +28,17 @@ function Trailer({movies}) {
     }, 300);
     setPayload(false)
     
+    var data = []
+      
+      auth.onAuthStateChanged((user) => {
+        database.ref("search-history/" + user.uid).on('child_added', (snap) => {
+         data.push(snap.val())
+        })
+      })
+      
+     setTimeout(() => {
+       localStorage.setItem("search-history",JSON.stringify(data))
+      }, 1000);
  
   document.getElementById("trailer").classList.add('none')
 

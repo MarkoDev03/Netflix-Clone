@@ -132,14 +132,21 @@ function searchAPI() {
       })
 
       var data = []
-
+      
       auth.onAuthStateChanged((user) => {
         database.ref("search-history/" + user.uid).on('child_added', (snap) => {
          data.push(snap.val())
         })
       })
       
-      setMovieDefault(data)
+     setTimeout(() => {
+       localStorage.setItem("search-history",JSON.stringify(data))
+       
+      }, 1000);
+
+      setTimeout(() => {
+        setMovieDefault(JSON.parse(localStorage.getItem("search-history")))
+      }, 1500);
 
   }
 
@@ -205,12 +212,13 @@ function searchAPI() {
          :
          (
           movieDefault.map((item) => (
-           <div  key={item.id} className="def-movie-his">
+           <div  key={item.id} className="def-movie-his"
+           onClick={() => {MovieClick(item)}}
+           >
               <img
               src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
               alt=""
               className="movie-his"
-              onClick={() => {MovieClick(item)}}
             />
             <div className="text-style">
             <h4> {item?.original_name ||item?.original_title ||item?.name || item?.title}</h4>
