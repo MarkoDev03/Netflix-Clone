@@ -20,7 +20,6 @@ function Search() {
   var [results, setSearchResults] = useState([]);
   const [movie, setMovie] = useState("");
   const [movieDefault, setMovieDefault] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
   const searchBar = useRef('')
 
   useLayoutEffect(() => {
@@ -92,7 +91,6 @@ function Search() {
       setMovieDefault(localStorage.getItem("search-history") ? JSON.parse(localStorage.getItem("search-history")) : data)
 
       setAllMovies(moviesIn);
-      setSearchValue("")
       setSearchResults([]);
     }
 
@@ -186,10 +184,10 @@ function searchAPI() {
           type="search"
           name=""
           id="search"
+          
           placeholder="Search for a show, movie, gener, etc."
           autoComplete="off"
           ref={searchBar}
-          onChange={(e) => setSearchValue(e.target.value)}
           onKeyUp={searchAPI}
         />
       </div>
