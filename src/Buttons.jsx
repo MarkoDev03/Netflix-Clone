@@ -1,11 +1,9 @@
 import React, { useState, useLayoutEffect } from "react";
 import "./Banner.css";
+import { CheckLg, InfoCircle, Plus, PlusLg } from 'react-bootstrap-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCheck,
-  faInfoCircle,
   faPlay,
-  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { auth, database } from "./Firebase";
 
@@ -63,10 +61,7 @@ function Buttons({ classBtn, movie }) {
     <div className="flag-div">
       <div className={classBtn}>
         <button className="banner_button flex-btn" onClick={addToListMovie}>
-          <FontAwesomeIcon
-            icon={added === false ? faPlus : faCheck}
-            className="iconic"
-          ></FontAwesomeIcon>
+          {added === false ? <PlusLg  className="iconic" /> : <CheckLg className="iconic" />}
           My List
         </button>
         <button className="banner_button middle-button">
@@ -77,10 +72,9 @@ function Buttons({ classBtn, movie }) {
           Play
         </button>
         <button className="banner_button flex-btn">
-          <FontAwesomeIcon
-            icon={faInfoCircle}
+          <InfoCircle
             className="iconic"
-          ></FontAwesomeIcon>
+          />
           Info
         </button>
       </div>

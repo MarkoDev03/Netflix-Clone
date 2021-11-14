@@ -115,7 +115,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
         }
       ></div>
       {!isBannerInMiddle && window.innerWidth < 900 ? (
-        <div>
+        <div className="fade-geners">
           <Geners></Geners>
           <Buttons classBtn="align_middle_btns banner_buttons b-mds" movie={movies}></Buttons>
         </div>
