@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from "react";
 import "./Banner.css";
-import { CheckLg, InfoCircle, Plus, PlusLg } from 'react-bootstrap-icons';
+import { CheckLg, InfoCircle, PlusLg } from 'react-bootstrap-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
