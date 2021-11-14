@@ -93,7 +93,7 @@ function Search() {
     }
 
     FetchDataFromAPI();
-  }, [movieDefault, results.length]);
+  }, []);
   
 function searchAPI() {
         var inputValue = searchBar.current.value;
