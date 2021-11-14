@@ -78,6 +78,7 @@ function Profile() {
   const signOut = () => {
     auth.signOut();
     setUsername("");
+    localStorage.setItem("search-history",null)
     history.push("/home");
   };
 

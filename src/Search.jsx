@@ -19,12 +19,10 @@ function Search() {
   var [movies, setAllMovies] = useState([]);
   var [results, setSearchResults] = useState([]);
   const [movie, setMovie] = useState("");
-  const [movieDefault, setMovieDefault] = useState([]);
+  const [movieDefault, setMovieDefault] = useState([]); 
   const searchBar = useRef('')
 
   useLayoutEffect(() => {
-    console.log(results.length)
-    console.log(movieDefault)
     async function FetchDataFromAPI() {
       const data1 = await Axios.get(Requests.fetchDocumentaries);
       const data2 = await Axios.get(Requests.fetchCrime);
@@ -95,7 +93,7 @@ function Search() {
     }
 
     FetchDataFromAPI();
-  }, []);
+  }, [movieDefault, results.length]);
   
 function searchAPI() {
         var inputValue = searchBar.current.value;
