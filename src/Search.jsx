@@ -6,7 +6,7 @@ import {
   faSortDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory, Link } from "react-router-dom";
-import { auth } from "./Firebase";
+import { auth, database } from "./Firebase";
 import Requests from "./requests";
 import Axios from "./axios";
 import Trailer from "./Trailer";
@@ -19,9 +19,13 @@ function Search() {
   var [movies, setAllMovies] = useState([]);
   var [results, setSearchResults] = useState([]);
   const [movie, setMovie] = useState("");
+  const [movieDefault, setMovieDefault] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
   const searchBar = useRef('')
 
   useLayoutEffect(() => {
+    console.log(results.length)
+    console.log(movieDefault)
     async function FetchDataFromAPI() {
       const data1 = await Axios.get(Requests.fetchDocumentaries);
       const data2 = await Axios.get(Requests.fetchCrime);
@@ -74,7 +78,21 @@ function Search() {
           )
       );
 
+      var data = []
+
+      auth.onAuthStateChanged((user) => {
+        database.ref("search-history/" + user.uid).on('child_added', (snap) => {
+         data.push(snap.val())
+        })
+      })
+      
+     setTimeout(() => {
+       localStorage.setItem("search-history",JSON.stringify(data))
+      }, 1000);
+      setMovieDefault(localStorage.getItem("search-history") ? JSON.parse(localStorage.getItem("search-history")) : data)
+
       setAllMovies(moviesIn);
+      setSearchValue("")
       setSearchResults([]);
     }
 
@@ -112,8 +130,21 @@ function searchAPI() {
   function MovieClick(movies) {
 
       setMovie(movies);
-      console.log(movies)
-    
+      
+      auth.onAuthStateChanged((user) => {
+        database.ref("search-history/" + user.uid + "/" + movies.id).set(movies)
+      })
+
+      var data = []
+
+      auth.onAuthStateChanged((user) => {
+        database.ref("search-history/" + user.uid).on('child_added', (snap) => {
+         data.push(snap.val())
+        })
+      })
+      
+      setMovieDefault(data)
+
   }
 
   return (
@@ -158,13 +189,16 @@ function searchAPI() {
           placeholder="Search for a show, movie, gener, etc."
           autoComplete="off"
           ref={searchBar}
+          onChange={(e) => setSearchValue(e.target.value)}
           onKeyUp={searchAPI}
         />
       </div>
       </div>
       <div className="list-div" style={{ marginTop: "125px" }}>
+
         <div className="list-wrapper" id="list">
-          {results.map((item) => (
+          {results.length !== 0 ? (
+          results.map((item) => (
             <img
               src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
               alt=""
@@ -172,7 +206,24 @@ function searchAPI() {
               key={item.id}
               onClick={() => {MovieClick(item)}}
             />
-          ))}
+          )))
+         :
+         (
+          movieDefault.map((item) => (
+           <div  key={item.id} className="def-movie-his">
+              <img
+              src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+              alt=""
+              className="movie-his"
+              onClick={() => {MovieClick(item)}}
+            />
+            <div className="text-style">
+            <h4> {item?.original_name ||item?.original_title ||item?.name || item?.title}</h4>
+            </div>
+          </div>
+          ))
+         )
+        }
         </div>
       </div>
       {movie && <Trailer movies={movie}></Trailer>}
