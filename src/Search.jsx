@@ -192,7 +192,7 @@ function searchAPI() {
       </div>
       <div className="list-div" style={{ marginTop: "125px" }}>
         <div className="list-wrapper" id="list">
-          {results.length !== 0 ? (
+          {results.length > 0 ? (
           results.map((item) => (
             <img
               src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}

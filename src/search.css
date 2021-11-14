@@ -76,11 +76,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 65px;
     color: white;
+    font-size: 15px;
+    font-weight: 100;
 }
 .movie-his{
-    height: 100px;
+    height: 65px;
     width: auto;
 }
 
