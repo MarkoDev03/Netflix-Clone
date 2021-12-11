@@ -137,46 +137,54 @@ function App({ user }) {
         fetchURL={Requests.fetchWar}
         key={22}
       ></Row>
-       <Row
+       {/* <Row
         title="Action & Adventure"
         fetchURL={Requests.fetchActionAndAdventure}
         key={23}
-      ></Row>
-        <Row
+        type="series"
+      ></Row> */}
+        {/* <Row
         title="Kids"
         fetchURL={Requests.fetchKids}
+        type="series"
         key={24}
       ></Row>
         <Row
         title="News"
         fetchURL={Requests.fetchNews}
+        type="series"
         key={25}
-      ></Row>
-        <Row
+      ></Row> */}
+        {/* <Row
         title="Reality"
         fetchURL={Requests.fetchreality}
+        type="series"
         key={26}
       ></Row>
         <Row
         title="Sci-Fi & Fantasy"
         fetchURL={Requests.fetchSciFiAndFantasy}
+        type="series"
         key={27}
       ></Row>
         <Row
         title="Soap"
         fetchURL={Requests.fetchSoap}
         key={28}
+        type="series"
       ></Row>
        <Row
         title="Talk"
         fetchURL={Requests.fetchTalk}
         key={29}
+        type="series"
       ></Row>
         <Row
         title="War & Politics"
         fetchURL={Requests.fetchWarAndPolitics}
         key={30}
-      ></Row>
+        type="series"
+      ></Row> */}
       <div style={{width:'1px',height:'85px'}}>
 
       </div>

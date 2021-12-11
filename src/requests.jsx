@@ -23,14 +23,17 @@ const requests = {
     fetchFamily:`/discover/movie?api_key=${API_KEY}&with_genres=10751`,
     fetchAdventure:`/discover/movie?api_key=${API_KEY}&with_genres=12`,
     fetchWar:`/discover/movie?api_key=${API_KEY}&with_genres=10752`,
-    fetchActionAndAdventure:`/discover/movie?api_key=${API_KEY}&with_genres=10759`,
-    fetchKids:`/discover/movie?api_key=${API_KEY}&with_genres=10762`,
-    fetchNews:`/discover/movie?api_key=${API_KEY}&with_genres=10763`,
-    fetchreality:`/discover/movie?api_key=${API_KEY}&with_genres=10764`,
-    fetchSciFiAndFantasy:`/discover/movie?api_key=${API_KEY}&with_genres=10765`,
-    fetchSoap:`/discover/movie?api_key=${API_KEY}&with_genres=10766`,
-    fetchTalk:`/discover/movie?api_key=${API_KEY}&with_genres=10767`,
-    fetchWarAndPolitics:`/discover/movie?api_key=${API_KEY}&with_genres=10768`,
+
+    fetchActionAndAdventure:`/tv/10759?api_key=${API_KEY}&language=en-US`,
+    fetchKids:`/tv/10762?api_key=${API_KEY}&language=en-US`,
+    fetchNews:`/tv/10763?api_key=${API_KEY}&language=en-US`,
+    fetchreality:`/tv/10764?api_key=${API_KEY}&language=en-US`,
+    fetchSciFiAndFantasy:`/tv/10765?api_key=${API_KEY}&language=en-US`,
+    fetchSoap:`/tv/10766?api_key=${API_KEY}&language=en-US`,
+    fetchTalk:`/tv/10767?api_key=${API_KEY}&language=en-US`,
+    fetchWarAndPolitics:`/tv/10768?api_key=${API_KEY}&language=en-US`,
 }
+
+//tv/10766?api_key=1ac954f3a80a366794602b75222bbf8e&language=en-US
 
 export default  requests;

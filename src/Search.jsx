@@ -173,6 +173,7 @@ function searchAPI() {
               className="whoswathcing"
               width={30}
               height={30}
+              
               alt=""
             />
           </Link>

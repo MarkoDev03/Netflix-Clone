@@ -140,6 +140,7 @@ function Avatar() {
                 className="whoswathcing"
                 width={30}
                 height={30}
+                loading="lazy"
                 alt=""
                 id="avatar"
               />
@@ -175,6 +176,7 @@ function Avatar() {
                   className="swiper_slide_avatar"
                   key={item.url}
                   style={{marginTop:'7px'}}
+                  loading="lazy"
                   onClick={() => {
                     setNewAvatar(item.url);
                   }}

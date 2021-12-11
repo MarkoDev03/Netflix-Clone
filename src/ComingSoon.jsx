@@ -106,7 +106,10 @@ function ComingSoon() {
                 {
                     movies.map((movie) => (        
                         <div className='card-soon' id={movie.id}>
-                 <img src={base_image_url + movie.backdrop_path} alt="" className="image-soon" />
+                 <img src={base_image_url + movie.backdrop_path} alt="" className="image-soon"
+                      loading="lazy"
+                 
+                 />
                  <div className="data-soon-banner">
                      <div>
                      <h4 className="soon-name-banner"> {movie?.original_name ||movie?.original_title ||movie?.name ||movie?.title}</h4>

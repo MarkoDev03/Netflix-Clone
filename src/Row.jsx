@@ -10,20 +10,30 @@ const base_image_url = "https://image.tmdb.org/t/p/original/";
 
 export const MovieContext = createContext(null);
 
-function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix }) {
+function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  }) {
   const [movies, setMovies] = useState([]);
   const [movie, setMovie] = useState("");
 
   useLayoutEffect(() => {
     async function fetchData() {
-      const request = await Axios.get(fetchURL);
+      if (type === "series") {
+        var dataEmpty = []
+        const request = await Axios.get(fetchURL);
+        dataEmpty.push(request.data)
+        setTimeout(() => {
+      localStorage.setItem(title, JSON.stringify(dataEmpty))
+      setMovies(dataEmpty);
+    }, 4000);
+      return request;
+      } else {
+        const request = await Axios.get(fetchURL);
       localStorage.setItem(title, JSON.stringify(request.data.results))
       setMovies(JSON.parse(localStorage.getItem(title)) ? JSON.parse(localStorage.getItem(title)) : request.data.results);
       return request;
+      }
     }
-
     fetchData();
-  }, [title, fetchURL]);
+  }, [title, fetchURL, type]);
 
   return (
     <div className="row">
