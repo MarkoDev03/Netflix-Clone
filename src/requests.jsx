@@ -23,6 +23,14 @@ const requests = {
     fetchFamily:`/discover/movie?api_key=${API_KEY}&with_genres=10751`,
     fetchAdventure:`/discover/movie?api_key=${API_KEY}&with_genres=12`,
     fetchWar:`/discover/movie?api_key=${API_KEY}&with_genres=10752`,
+    fetchActionAndAdventure:`/discover/movie?api_key=${API_KEY}&with_genres=10759`,
+    fetchKids:`/discover/movie?api_key=${API_KEY}&with_genres=10762`,
+    fetchNews:`/discover/movie?api_key=${API_KEY}&with_genres=10763`,
+    fetchreality:`/discover/movie?api_key=${API_KEY}&with_genres=10764`,
+    fetchSciFiAndFantasy:`/discover/movie?api_key=${API_KEY}&with_genres=10765`,
+    fetchSoap:`/discover/movie?api_key=${API_KEY}&with_genres=10766`,
+    fetchTalk:`/discover/movie?api_key=${API_KEY}&with_genres=10767`,
+    fetchWarAndPolitics:`/discover/movie?api_key=${API_KEY}&with_genres=10768`,
 }
 
 export default  requests;

@@ -75,6 +75,13 @@ function Profile() {
     return userIsLoggedIn;
   }, [history]);
 
+  const deleteSearchHistory = () => {
+    auth.onAuthStateChanged((user) => {
+      database.ref("search-history/" + user.uid).remove()
+    })
+    localStorage.setItem("search-history",null)
+  }
+
   const signOut = () => {
     auth.signOut();
     setUsername("");
@@ -114,6 +121,7 @@ function Profile() {
     if (window.innerWidth > 900) {
       document.getElementById("pl-all").style.width = hd + "px";
       document.getElementById("signout").style.width = hd + "px";
+      document.getElementById("history").style.width = hd + "px";
     }
   },10);
 
@@ -140,7 +148,7 @@ function Profile() {
         <div className="plans-overview" id="pl-all">
           <div className="plans">
             <div className="plan Renwal">
-              <p>Renewal date: {day}/{month}/{year} </p>
+              <span>Renewal date: {day}/{month}/{year} </span>
             </div>
           </div>
           {plan.map((item) => (
@@ -161,8 +169,11 @@ function Profile() {
             </div>
           ))}
         </div>
+          <button className="logout-btn" onClick={deleteSearchHistory} id="history">
+          DELETE HISTORY
+        </button>
         <button className="logout-btn" onClick={signOut} id="signout">
-          Sign out
+          SIGN OUT
         </button>
       </div>
     </div>

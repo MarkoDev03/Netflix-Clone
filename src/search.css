@@ -69,20 +69,8 @@
     }
 }
 
-.def-movie-his{
-    width: 100%;
-    padding: 0px;margin-top: 3px;
-    background-color: #2f2f2f;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 65px;
-    color: white;
-    font-size: 15px;
-    font-weight: 100;
-}
 .movie-his{
-    height: 65px;
+    height: 155px;
     width: auto;
 }
 
@@ -91,8 +79,56 @@
     justify-content: flex-start;
     flex-grow: 1;
     padding-inline: 10px;
+    font-size: 25px;
 }
+
+.def-movie-his{
+    width: 100%;
+    padding: 0px;margin-top: 3px;
+    background-color: #242424;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    color: white;
+    font-size: 15px;
+    font-weight: 100;
+    height: fit-content;
+}
+
+.play-his{
+    margin-right: 15px;
+}
+
+@media only screen and (max-width:1000px) {
+    .movie-his{
+        height: 65px;
+        width: auto;
+    }
+    .text-style{
+        display: flex;
+        justify-content: flex-start;
+        flex-grow: 1;
+        padding-inline: 10px;
+        font-size: 13px;
+    }
+
+}
+
+.def-movie-his:hover{
+    background-color: #181818;
+    transition: 250ms ease-out;
+}
+
+.def-movie-his:active{
+    background-color: #181818;
+    transition: 250ms ease-out;
+}
+
+
 
 .Src-his{
     color: white;
+    font-size: 21px;
+    font-weight: 500;
 }

@@ -52,6 +52,7 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix }) {
                     alt={movie.name}
                     className="row__poster"
                     onClick={() => movieClick(movie)}
+                    loading="lazy"
                   />
                   <h1
                     className={index + 1 === 10 ? "row-index-10" : "row-index"}
@@ -77,6 +78,7 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix }) {
                     alt={movie.name}
                     className="row__poster"
                     onClick={() => movieClick(movie)}
+                    loading="lazy"
                   />
                 </div>
               </SwiperSlide>

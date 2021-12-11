@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Search as SearchIcon } from 'react-bootstrap-icons';
+import { Search as SearchIcon, PlayCircle } from 'react-bootstrap-icons';
 import {
   faArrowLeft,
   faSortDown,
@@ -13,6 +13,7 @@ import Trailer from "./Trailer";
 import "./search.css";
 import "./App.css";
 import "./list.css";
+import "./Trailer.css";
 
 function Search() {
   const history = useHistory();
@@ -210,6 +211,7 @@ function searchAPI() {
               className="movie"
               key={item.id}
               onClick={() => {MovieClick(item)}}
+              loading="lazy"
             />
           )))
          :
@@ -221,11 +223,13 @@ function searchAPI() {
               <img
               src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
               alt=""
-              className="movie-his"
+              className="movie-his" 
+              loading="lazy"
             />
             <div className="text-style">
             <h4> {item?.original_name ||item?.original_title ||item?.name || item?.title}</h4>
             </div>
+            <PlayCircle size={25} color="white" className="play-his"></PlayCircle>
           </div>
           ))
          )

@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState } from "react";
 import Login from "./Login";
 import Profile from "./Profile";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import { auth, database } from "./Firebase";
 import List from './List.jsx'
