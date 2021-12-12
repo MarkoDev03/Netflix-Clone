@@ -139,13 +139,12 @@ function searchAPI() {
 
       setMovie(movies);
 
-     var data = new Array([])
-     var resultGenres = new Array([])
+     var data = []
+     var resultGenres =[]
 
     genres.forEach((genre) => {
        movies.genre_ids.forEach((item) => {
          if ( +genre.id === +item) {
-           console.log(genre.name)
            resultGenres.push(genre.name)
          }
        })
@@ -173,6 +172,36 @@ function searchAPI() {
         setMovieDefault(JSON.parse(localStorage.getItem("search-history")))
       }, 1500);
 
+  }
+
+  useLayoutEffect(() => {
+    
+    var data = []
+    auth.onAuthStateChanged((user) => {
+      database.ref("search-history/" + user.uid).on('child_added', (snap) => {
+       data.push(snap.val())
+      })
+    })
+    
+   setTimeout(() => {
+     localStorage.setItem("search-history",JSON.stringify(data))
+     
+    }, 1000);
+    setTimeout(() => {
+    if (data.length > 0) {
+      setMovieDefault(JSON.parse(localStorage.getItem("search-history")))
+    } else {
+      setMovieDefault([])
+    }
+    }, 1500);
+  }, [movieDefault])
+
+  const clearHistory = () => {
+    setMovieDefault([])
+    localStorage.setItem("search-history", [])
+    auth.onAuthStateChanged((user) => {
+      database.ref("search-history/" + user.uid).remove()
+    })
   }
 
   return (
@@ -225,7 +254,9 @@ function searchAPI() {
       </div>
       <div className="list-div" style={{ marginTop: "125px" }}>
       {results.length > 0 ? "" : (
-        <span className="Src-his">Search history</span>
+        <div className="history-headlines">
+          <span className="Src-his">Search history</span> <span className="clearhistory" onClick={clearHistory}>· Clear history</span>
+        </div>
       )}
         <div className="list-wrapper" id="list">
           {results.length > 0 ? (
@@ -240,31 +271,37 @@ function searchAPI() {
             />
           )))
          :
-         (
-          movieDefault.map((item) => (
-           <div  key={item.id} className="def-movie-his"
-           onClick={() => {MovieClick(item)}}
-           >
-              <img
-              src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-              alt=""
-              className="movie-his" 
-              loading="lazy"
-            />
-            <div className="text-style">
-            <h4> {item?.original_name ||item?.original_title ||item?.name || item?.title}</h4>
-             <div className="genres-his">
-             {
-               item?.genresData.map((genreItem) => (
-                <span className="genre-childs">{genreItem}  <span className="red-dot-src">·</span></span>
-               ))
-             }
-             </div>
+        
+          movieDefault.length > 0 ?  (
+            movieDefault.map((item) => (
+             <div  key={item.id} className="def-movie-his"
+             onClick={() => {MovieClick(item)}}
+             >
+                <img
+                src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+                alt=""
+                className="movie-his" 
+                loading="lazy"
+              />
+              <div className="text-style">
+              <h4> {item?.original_name ||item?.original_title ||item?.name || item?.title}</h4>
+               <div className="genres-his">
+                {
+                  item.genresData !== undefined ? (
+                    
+                      item.genresData.map((genreItem) => (
+                       <span className="genre-childs">{genreItem}  <span className="red-dot-src">·</span></span>
+                      ))
+                    
+                  ): ""
+                }
+               </div>
+              </div>
+              <PlayCircle size={25} color="white" className="play-his"></PlayCircle>
             </div>
-            <PlayCircle size={25} color="white" className="play-his"></PlayCircle>
-          </div>
-          ))
-         )
+            ))
+           ) : ""
+        
         }
         </div>
       </div>
