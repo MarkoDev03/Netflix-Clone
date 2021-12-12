@@ -21,7 +21,18 @@ function Search() {
   var [results, setSearchResults] = useState([]);
   const [movie, setMovie] = useState("");
   const [movieDefault, setMovieDefault] = useState([]); 
+  const [genres, setGenres] = useState([]); 
   const searchBar = useRef('')
+
+  useLayoutEffect(() => {
+    async function getGeners() {
+      const data = await Axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=1ac954f3a80a366794602b75222bbf8e&language=en-US");
+      setGenres(data.data.genres)
+      return data
+    }
+    
+    getGeners()
+  }, [])
 
   useLayoutEffect(() => {
     async function FetchDataFromAPI() {
@@ -127,12 +138,25 @@ function searchAPI() {
   function MovieClick(movies) {
 
       setMovie(movies);
-      
-      auth.onAuthStateChanged((user) => {
-        database.ref("search-history/" + user.uid + "/" + movies.id).set(movies)
-      })
 
-      var data = []
+     var data = new Array([])
+     var resultGenres = new Array([])
+
+    genres.forEach((genre) => {
+       movies.genre_ids.forEach((item) => {
+         if ( +genre.id === +item) {
+           console.log(genre.name)
+           resultGenres.push(genre.name)
+         }
+       })
+     })
+
+     var movie = new Proxy(movies, {})
+     movie.genresData = resultGenres
+
+     auth.onAuthStateChanged((user) => {
+      database.ref("search-history/" + user.uid + "/" + movies.id).set(movie)
+    })
       
       auth.onAuthStateChanged((user) => {
         database.ref("search-history/" + user.uid).on('child_added', (snap) => {
@@ -229,6 +253,13 @@ function searchAPI() {
             />
             <div className="text-style">
             <h4> {item?.original_name ||item?.original_title ||item?.name || item?.title}</h4>
+             <div className="genres-his">
+             {
+               item?.genresData.map((genreItem) => (
+                <span className="genre-childs">{genreItem}  <span className="red-dot-src">·</span></span>
+               ))
+             }
+             </div>
             </div>
             <PlayCircle size={25} color="white" className="play-his"></PlayCircle>
           </div>

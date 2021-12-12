@@ -24,6 +24,7 @@ const requests = {
     fetchAdventure:`/discover/movie?api_key=${API_KEY}&with_genres=12`,
     fetchWar:`/discover/movie?api_key=${API_KEY}&with_genres=10752`,
 
+    //series, returns just {} as a result. Not implemented!
     fetchActionAndAdventure:`/tv/10759?api_key=${API_KEY}&language=en-US`,
     fetchKids:`/tv/10762?api_key=${API_KEY}&language=en-US`,
     fetchNews:`/tv/10763?api_key=${API_KEY}&language=en-US`,

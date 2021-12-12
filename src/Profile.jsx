@@ -75,12 +75,12 @@ function Profile() {
     return userIsLoggedIn;
   }, [history]);
 
-  const deleteSearchHistory = () => {
-    auth.onAuthStateChanged((user) => {
-      database.ref("search-history/" + user.uid).remove()
-    })
-    localStorage.setItem("search-history",null)
-  }
+  // const deleteSearchHistory = () => {
+  //   auth.onAuthStateChanged((user) => {
+  //     database.ref("search-history/" + user.uid).remove()
+  //   })
+  //   localStorage.setItem("search-history",null)
+  // }
 
   const signOut = () => {
     auth.signOut();
@@ -169,9 +169,6 @@ function Profile() {
             </div>
           ))}
         </div>
-          <button className="logout-btn" onClick={deleteSearchHistory} id="history">
-          DELETE HISTORY
-        </button>
         <button className="logout-btn" onClick={signOut} id="signout">
           SIGN OUT
         </button>

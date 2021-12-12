@@ -77,9 +77,37 @@
 .text-style{
     display: flex;
     justify-content: flex-start;
+    flex-direction: column;
     flex-grow: 1;
     padding-inline: 10px;
     font-size: 25px;
+}
+
+.text-style span {
+    color: rgb(182, 182, 182);
+}
+
+.genre-childs:first-child{
+    display: none !important;
+}
+
+.genre-childs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.red-dot-src{
+    color: red !important;
+    font-size: 26px !important;
+    margin-left: 5px !important;
+   margin-block: 0px;
+   padding-block: 0px;
+}
+
+.red-dot-src:last-child {
+    color: whitesmoke;
 }
 
 .def-movie-his{
@@ -125,10 +153,21 @@
     transition: 250ms ease-out;
 }
 
+.genres-his{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
 
+.text-style h4{
+    margin:0px;
+    padding: 0px;
+}
 
 .Src-his{
     color: white;
-    font-size: 21px;
-    font-weight: 500;
+    font-size: 28px;
+    font-weight: 600;
+    margin-left: 10px;
 }
