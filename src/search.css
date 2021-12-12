@@ -87,10 +87,6 @@
     color: rgb(182, 182, 182);
 }
 
-.genre-childs:first-child{
-    display: none !important;
-}
-
 .genre-childs {
     display: flex;
     justify-content: center;
