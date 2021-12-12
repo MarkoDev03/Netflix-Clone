@@ -142,13 +142,21 @@ function searchAPI() {
      var data = []
      var resultGenres =[]
 
+   if (movies.genre_ids.length > 1) {
     genres.forEach((genre) => {
-       movies.genre_ids.forEach((item) => {
-         if ( +genre.id === +item) {
-           resultGenres.push(genre.name)
-         }
-       })
-     })
+      movies.genre_ids.forEach((item) => {
+        if ( +genre.id === +item) {
+          resultGenres.push(genre.name)
+        }
+      })
+    })
+   } else {
+    genres.forEach((genre) => {
+        if ( +genre.id === +movies.genre_ids) {
+          resultGenres.push(genre.name)
+        }
+    })
+   }
 
      var movie = new Proxy(movies, {})
      movie.genresData = resultGenres
