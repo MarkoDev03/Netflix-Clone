@@ -99,3 +99,32 @@ body{
 }
 
 }
+
+@keyframes zoomInUp {
+   from {
+     transform: scale(0);
+   }
+   to{
+     transform: scale(1);
+   }
+}
+
+.shuffle-float{
+  background-color: white;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 75px;
+  right: 10px;
+  z-index: 9999;
+  animation:  zoomInUp 280ms ease-out;
+}
+
+.shuffleimg{
+  width: 40px;
+  height: auto;
+}
