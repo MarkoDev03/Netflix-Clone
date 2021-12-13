@@ -3,14 +3,13 @@ import Footer from './Footer'
 import Axios from "./axios";
 import Requests from "./requests";
 import HeaderTab from './HeaderTab';
-import { Bell, ChevronRight, InfoCircle } from 'react-bootstrap-icons';
-import Gener from './Gener'
+import { Bell, ChevronRight } from 'react-bootstrap-icons';
+import ComingSoonComponent from './ComingSoonComponent';
 import './comingsoon.css'
 import Aos from 'aos'
 import "aos/dist/aos.css"
 
 function ComingSoon() {
-  const base_image_url = "https://image.tmdb.org/t/p/original/";
 
     var [movies, setAllMovies] = useState([]);
 
@@ -105,39 +104,7 @@ function ComingSoon() {
             </div>
                 {
                     movies.map((movie) => (        
-                        <div className='card-soon' id={movie.id}>
-                 <img src={base_image_url + movie.backdrop_path} alt="" className="image-soon"
-                      loading="lazy"
-                 
-                 />
-                 <div className="data-soon-banner">
-                     <div>
-                     <h4 className="soon-name-banner"> {movie?.original_name ||movie?.original_title ||movie?.name ||movie?.title}</h4>
-                     </div>
-                     <div className="options-soon">
-                             <div className="option-soon">
-                        
-                             <Bell className="soon-icon" />
-                             <span className="icon-txr">Remind me</span>
-                             </div>
-                             <div className="option-soon">
-                             <InfoCircle className="soon-icon" />
-                             <span className="icon-txr">Remind me</span>
-                             </div>
-                     </div>
-                 </div>
-                 <div className="data-soon">
-                 <span className="soon-time">
-                       Coming November 19
-                     </span>
-                     <h3 className="soon-name"> {movie?.original_name ||movie?.original_title ||movie?.name ||movie?.title}</h3>
-                     <span className="soon-desc">
-                        {movie.overview}
-                     </span>
-                 <Gener />
-                 </div>
-             </div>
-                      
+             <ComingSoonComponent movie={movie} key={movie.id} />
                     ))
                 }
             </div> }

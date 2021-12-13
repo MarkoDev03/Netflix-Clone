@@ -93,7 +93,7 @@
     rgba(0, 0, 0, 0.4),
     rgb(0, 0, 0)
   );
-  z-index: 2;
+  z-index: 2 ;
   display: flex;
   position: absolute;
   bottom: 0px;

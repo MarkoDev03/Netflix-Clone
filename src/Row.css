@@ -58,6 +58,7 @@
 .large_rows{
     margin-top: -20px;
     margin-left: 10px;/*ovo*/
+    z-index: 9;
 }
 .row-title{
     margin-left: 10px;/*ovo*/

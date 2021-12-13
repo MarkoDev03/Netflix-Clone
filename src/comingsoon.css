@@ -12,6 +12,12 @@
     z-index: 991 ;
    margin-bottom: 10px;
 }
+
+.logomoviesoon{
+    width: 100px;
+    height: auto;
+    margin-block: 15px;
+}
 .application{
     height: 100vh;
     overflow-y: hidden;
