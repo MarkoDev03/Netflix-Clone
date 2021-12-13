@@ -22,8 +22,8 @@ function App({ user }) {
       <NavBar username={user}></NavBar>
       <Footer />
       <Banner
-        fetchURL={Requests.fetchNetflixOriginals}
-        title="Netflix Originals"
+        fetchURL={Requests.fetchTrending}
+        title="Trending Now"
       ></Banner>
 
       {window.innerWidth < 900 ? (

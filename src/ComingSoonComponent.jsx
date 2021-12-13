@@ -9,7 +9,7 @@ function ComingSoonComponent({movie}) {
     const base_image_url = "https://image.tmdb.org/t/p/original/";
 
     useLayoutEffect(() => {
-     fetch(`https://api.themoviedb.org/3/movie/${movie.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e&language=en-US&include_image_language=en,null`)
+     fetch(`https://api.themoviedb.org/3/movie/${movie.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
    .then((response) => response.json())
    .then((data) => {
     setLogo(data.logos[0].file_path)

@@ -10,6 +10,18 @@ import { faRedo } from "@fortawesome/free-solid-svg-icons";
 
 function Banner({ title, fetchURL, isBannerInMiddle }) {
   const [movies, setMovies] = useState([]);
+  const [logo, setLogo] = useState("")
+  const [genres, setGenres] = useState([]); 
+
+  const base_image_url = "https://image.tmdb.org/t/p/original/";
+
+  useLayoutEffect(() => {
+   fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
+ .then((response) => response.json())
+ .then((data) => {
+  setLogo(data.logos[0].file_path)
+ })
+  }, [movies])
 
   useLayoutEffect(() => {
     async function fetchData() {
@@ -32,8 +44,12 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
         Math.floor(Math.random() * request.data.results.length)
       ]
     );
-    console.log(request.data.results.length);
-    console.log(request.data.results);
+    fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
+    .then((response) => response.json())
+    .then((data) => {
+     setLogo(data.logos[0].file_path)
+    })
+
 
     return request;
   }
@@ -59,7 +75,8 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
                 : "banner-div"
             }
           >
-            {!isBannerInMiddle ? (
+
+            {!isBannerInMiddle && logo === "" && logo === null && logo === undefined ? (
               <div className="n-series">
                 <img src={Logo} alt="" className="n-logo" />
                 <p className="n-text">SERIES</p>
@@ -67,7 +84,13 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             ) : (
               ""
             )}
-            <h1
+           
+
+            {
+              logo !== "" && logo !== null && logo !== undefined ? (
+                <img src={base_image_url + logo} alt="" className="logomoviesoonbanner" loading="lazy" />
+              ): (
+                <h1
               className={
                 !isBannerInMiddle && window.innerWidth < 900
                   ? "middle-title x-title"
@@ -76,6 +99,8 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             >
               {movies?.title || movies?.name || movies?.original_name}
             </h1>
+              )
+          }
           </div>
 
           {window.innerWidth  > 900  ? ( 
