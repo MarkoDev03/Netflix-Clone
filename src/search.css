@@ -108,10 +108,10 @@
 
 .red-dot-src{
     color: red !important;
-    font-size: 26px !important;
-    margin-left: 5px !important;
-   margin-block: 0px;
-   padding-block: 0px;
+    font-size: 25px !important;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    margin-top: 8px;
 }
 
 
@@ -133,6 +133,34 @@
     margin-right: 15px;
 }
 
+.genres-his{
+    color: white;
+    overflow:hidden;
+    text-overflow:ellipsis; 
+   white-space:pre-line;
+   line-height:30px;
+   max-height: 30px;
+   font-size: 18px;
+    max-width: 90%;
+     margin:0px;
+    padding: 0px;
+}
+
+.text-style h4{
+    margin:0px;
+    padding: 0px;
+    margin-top: 8px;
+    margin-bottom: -15px;
+    overflow:hidden;
+    text-overflow:ellipsis; 
+   white-space:pre-line;
+   line-height: 30px;
+   max-height: 30px;
+    max-width: 90%;
+     margin:0px;
+    padding: 0px;
+}
+
 @media only screen and (max-width:1000px) {
     .movie-his{
         height: 65px;
@@ -142,8 +170,44 @@
         display: flex;
         justify-content: flex-start;
         flex-grow: 1;
-        padding-inline: 10px;
+        padding-left: 10px;
         font-size: 13px;
+        padding-right: 0px !important;
+
+    }
+    .red-dot-src{
+        color: red !important;
+        font-size: 15px !important;
+        margin-left: 2px !important;
+        margin-right: 2px !important;
+        margin-top: 8px;
+    }
+    .genres-his{
+        color: white;
+        overflow:hidden;
+        text-overflow:ellipsis; 
+       white-space:pre-line;
+       line-height:17px;
+       max-height: 17px;
+       font-size: 12px;
+        max-width: 90%;
+         margin:0px;
+        padding: 0px;
+    }
+    
+    .text-style h4{
+        margin:0px;
+        padding: 0px;
+        margin-top: 8px;
+        margin-bottom: -15px;
+        overflow:hidden;
+        text-overflow:ellipsis; 
+       white-space:pre-line;
+       line-height: 18px;
+       max-height: 18px;
+        max-width: 90%;
+         margin:0px;
+        padding: 0px;
     }
 
 }
@@ -158,19 +222,7 @@
     transition: 250ms ease-out;
 }
 
-.genres-his{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    
-}
 
-.text-style h4{
-    margin:0px;
-    padding: 0px;
-    margin-top: 8px;
-    margin-bottom: -15px;
-}
 
 .Src-his{
     color: white;

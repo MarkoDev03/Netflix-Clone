@@ -7,7 +7,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        padding-block: 12px;
+        padding-block: 10px;
         background-color: rgb(17, 17, 17);
        
     }
@@ -23,8 +23,8 @@
     text-decoration: none;
 }
 .block-footer span{
-    font-size: 10px;
-    margin-top: 5px;
+    font-size: 9px;
+    margin-top: 3px;
 }
 .active-fill{
     fill: white;

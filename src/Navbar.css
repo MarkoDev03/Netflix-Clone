@@ -132,6 +132,7 @@ background-image: linear-gradient(
   }
   .navbar {
     flex-direction: column;
+    z-index: 99;
   }
 }
 

@@ -111,8 +111,8 @@ body{
 
 .shuffle-float{
   background-color: white;
-  width: 65px;
-  height: 65px;
+  width: 55px;
+  height: 55px;
   display: none;
   justify-content: center;
   align-items: center;
@@ -122,10 +122,11 @@ body{
   right: 10px;
   z-index: 9999;
   animation:  zoomInUp 280ms ease-out;
+  opacity: 0.95;
 }
 
 .shuffleimg{
-  width: 40px;
+  width: 30px;
   height: auto;
 }
 

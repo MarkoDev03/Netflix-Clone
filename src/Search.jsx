@@ -293,18 +293,18 @@ function searchAPI() {
               />
               <div className="text-style">
               <h4> {item?.original_name ||item?.original_title ||item?.name || item?.title}</h4>
-               <div className="genres-his">
+               <span className="genres-his">
                 {
                   item.genresData !== undefined ? (
                     
                       item.genresData.map((genreItem) => (
-                       <span className="genre-childs">{genreItem}  <span className="red-dot-src">·</span></span>
+                       <>{genreItem}  <span className="red-dot-src">·</span></>
                       ))
                     
                   ): ""
                 }
-               </div>
-              </div>
+               </span>
+              </div>            
               <PlayCircle size={25} color="white" className="play-his"></PlayCircle>
             </div>
             ))

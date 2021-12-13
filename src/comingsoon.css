@@ -50,7 +50,7 @@
 }
 
 .soon-wrapper{
-    height: calc(100vh - 117px);
+    height: calc(100vh - 100px);
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -97,23 +97,55 @@
 
 .soon-name{
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     width: 97%;
    text-overflow: ellipsis;
    word-wrap: break-word;
    overflow: hidden;
 }
 
+.genres-mapping{
+    width: 95%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    margin-top: -18px;
+}
+
+.genre-childs-soon{
+    color: white;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+.red-dot-src-soon{
+    color: red !important;
+    font-size: 20px !important;
+    margin-left: 5px !important;
+   margin-block: 0px;
+   padding-block: 0px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 .soon-desc{
-    font-size: 16px;
+    font-size: 14px;
     margin-top: -5px;
-    color: gray;
+    color: #6b5f5f;
     margin-bottom: 10px;
     text-overflow: ellipsis;
     word-wrap: break-word;
     overflow: hidden;
-    max-height: 4.5em;
-    line-height: 1.5em;
+    max-height: 3.8em;
+    line-height: 1.2em;
     margin-top: -15px;
     width: 95%;
 }

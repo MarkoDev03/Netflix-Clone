@@ -1,9 +1,11 @@
 import React, { useLayoutEffect, useState } from 'react'
 import { Bell, InfoCircle } from 'react-bootstrap-icons';
-import Gener from './Gener'
+import Axios from "./axios";
 
 function ComingSoonComponent({movie}) {
     const [logo, setLogo] = useState("")
+    const [genres, setGenres] = useState([]); 
+
     const base_image_url = "https://image.tmdb.org/t/p/original/";
 
     useLayoutEffect(() => {
@@ -13,6 +15,34 @@ function ComingSoonComponent({movie}) {
     setLogo(data.logos[0].file_path)
    })
     }, [movie.id])
+
+    useLayoutEffect(() => {
+      async function getGeners() {
+        const data = await Axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=1ac954f3a80a366794602b75222bbf8e&language=en-US");
+      
+        var resultGenres = []
+        
+        if (movie.genre_ids.length > 1) {
+          data.data.genres.forEach((genre) => {
+            movie.genre_ids.forEach((item) => {
+              if ( +genre.id === +item) {
+                resultGenres.push(genre.name)
+              }
+            })
+          })
+         } else {
+          data.data.genres.forEach((genre) => {
+              if ( +genre.id === +movie.genre_ids) {
+                resultGenres.push(genre.name)
+              }
+          })
+         }
+
+         setGenres(resultGenres)
+      }
+      
+      getGeners()
+    }, [movie.genre_ids])
 
     return (
         <div className='card-soon' id={movie.id}>
@@ -49,7 +79,17 @@ function ComingSoonComponent({movie}) {
             <span className="soon-desc">
                {movie.overview}
             </span>
-        <Gener />
+            <div className="genres-mapping">
+            {
+                  genres !== [] ? (
+                    
+                    genres.map((genreItem) => (
+                       <span className="genre-childs-soon">{genreItem}  <span className="red-dot-src-soon">·</span></span>
+                      ))
+                    
+                  ): ""
+                }
+            </div>
         </div>
     </div>
     )
