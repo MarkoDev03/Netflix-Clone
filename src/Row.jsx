@@ -124,9 +124,9 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
         1400: { slidesPerView: 8.5, spaceBetween: 10 },
         1000: { slidesPerView: 7.5, spaceBetween: 10 },
         700: { slidesPerView: 5.5, spaceBetween: 10 },
-        500: { slidesPerView: 3.45, spaceBetween: 5 },
-        400: { slidesPerView: 3.45, spaceBetween: 5 },
-        300: { slidesPerView: 3.45, spaceBetween: 5 },
+        500: { slidesPerView: 3.4, spaceBetween: 8 },
+        400: { slidesPerView: 3.4, spaceBetween: 8 },
+        300: { slidesPerView: 3.4, spaceBetween: 8 },
       };
     } else if (!isLaregeRow && !isOnlyOnNetflix) {
       return {
@@ -134,9 +134,9 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
         1400: { slidesPerView: 6.2, spaceBetween: 10 },
         1000: { slidesPerView: 6.2, spaceBetween: 10 },
         700: { slidesPerView: 5.2, spaceBetween: 10 },
-        500: { slidesPerView: 3.45, spaceBetween: 5 },
-        400: { slidesPerView: 3.45, spaceBetween: 5 },
-        300: { slidesPerView: 3.45, spaceBetween: 5 },
+        500: { slidesPerView: 3.45, spaceBetween: 8 },
+        400: { slidesPerView: 3.4, spaceBetween: 8 },
+        300: { slidesPerView: 3.4, spaceBetween: 8 },
       };
     } else if (isOnlyOnNetflix) {
       return {
@@ -154,9 +154,9 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
         1400: { slidesPerView: 5.2, spaceBetween: 10 },
         1000: { slidesPerView: 5.2, spaceBetween: 10 },
         700: { slidesPerView: 4.2, spaceBetween: 10 },
-        500: { slidesPerView: 2.5, spaceBetween: 5 },
-        400: { slidesPerView: 2.5, spaceBetween: 5 },
-        300: { slidesPerView: 2.5, spaceBetween: 5 },
+        500: { slidesPerView: 2, spaceBetween: 5 },
+        400: { slidesPerView: 2, spaceBetween: 5 },
+        300: { slidesPerView: 2, spaceBetween: 5 },
       }
     }
   }
