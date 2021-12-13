@@ -20,7 +20,7 @@ function ComingSoonComponent({movie}) {
              loading="lazy"     
         />
         <div className="data-soon-banner">
-            <div>
+          
           {
               logo !== "" && logo !== null && logo !== undefined ? (
                 <img src={base_image_url + logo} alt="" className="logomoviesoon" loading="lazy" />
@@ -28,7 +28,7 @@ function ComingSoonComponent({movie}) {
                 <h4 className="soon-name-banner"> {movie?.original_name ||movie?.original_title ||movie?.name ||movie?.title}</h4>
               )
           }
-            </div>
+            
             <div className="options-soon">
                     <div className="option-soon">
                

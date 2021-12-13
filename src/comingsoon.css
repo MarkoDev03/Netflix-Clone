@@ -16,7 +16,7 @@
 .logomoviesoon{
     width: 100px;
     height: auto;
-    margin-block: 15px;
+    margin-bottom: 15px;
 }
 .application{
     height: 100vh;
@@ -128,7 +128,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top:0px;
+    text-align: left;
+    margin-top:10px;
 }
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
 .soon-name-banner{
