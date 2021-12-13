@@ -11,7 +11,7 @@ import { faRedo } from "@fortawesome/free-solid-svg-icons";
 function Banner({ title, fetchURL, isBannerInMiddle }) {
   const [movies, setMovies] = useState([]);
   const [logo, setLogo] = useState("")
-  const [genres, setGenres] = useState([]); 
+ 
 
   const base_image_url = "https://image.tmdb.org/t/p/original/";
 
