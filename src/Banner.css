@@ -373,6 +373,9 @@
   color: black;
   transition: 285ms;
 }
+.mapbanner{
+  visibility: hidden !important;
+}
 @media only screen and (max-width:900px) {
   .align_middle_btns{
     width: 100%;
@@ -396,5 +399,22 @@
       rgb(0, 0, 0)
     );
   }
-  
+  .banner-div,.mr-div,.banner_content {
+    width: 100% !important;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgb(0, 0, 0),
+      rgb(0, 0, 0)
+    );
+  }
+  .logomoviesoonbanner{
+    margin-bottom: 50px;
+  }
+  .mapbanner{
+    visibility: visible !important;
+    text-align: center;
+    margin-bottom: -40px;
+    margin-top: 20px;
+  }
 }

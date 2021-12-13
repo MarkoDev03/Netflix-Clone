@@ -114,9 +114,7 @@
 
 }
 
-
 .red-dot-src-soon{
-   
     margin-left: 5px !important;
     margin-right: 5px !important;
     background-color: red;
@@ -125,6 +123,10 @@
     height: 3px;
     border-radius: 50%;
     margin-bottom: 3px;
+}
+
+.red-dot-src-soon:last-child{
+    display: none;
 }
 
 .soon-desc{

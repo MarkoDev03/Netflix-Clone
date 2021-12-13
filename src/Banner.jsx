@@ -7,10 +7,40 @@ import Logo from "./netflix-logo.png";
 import Geners from "./Gener";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRedo } from "@fortawesome/free-solid-svg-icons";
+import './comingsoon.css'
 
 function Banner({ title, fetchURL, isBannerInMiddle }) {
   const [movies, setMovies] = useState([]);
   const [logo, setLogo] = useState("")
+  const [genres, setGenres] = useState([]); 
+
+  useLayoutEffect(() => {
+    async function getGeners() {
+      const data = await Axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=1ac954f3a80a366794602b75222bbf8e&language=en-US");
+    
+      var resultGenres = []
+      
+      if (movies.genre_ids.length > 1) {
+        data.data.genres.forEach((genre) => {
+          movies.genre_ids.forEach((item) => {
+            if ( +genre.id === +item) {
+              resultGenres.push(genre.name)
+            }
+          })
+        })
+       } else {
+        data.data.genres.forEach((genre) => {
+            if ( +genre.id === +movies.genre_ids) {
+              resultGenres.push(genre.name)
+            }
+        })
+       }
+
+       setGenres(resultGenres)
+    }
+    
+    getGeners()
+  }, [movies.genre_ids])
  
 
   const base_image_url = "https://image.tmdb.org/t/p/original/";
@@ -102,6 +132,17 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
               )
           }
           </div>
+          <span className="genres-mapping mapbanner">
+            {
+                  genres !== [] ? (
+                    
+                    genres.map((genreItem) => (
+                       <>{genreItem}<div className="red-dot-src-soon"></div></>
+                      ))
+                    
+                  ): ""
+                }
+            </span>
 
           {window.innerWidth  > 900  ? ( 
           <Buttons
