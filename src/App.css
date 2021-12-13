@@ -118,8 +118,8 @@ body{
   align-items: center;
   border-radius: 50%;
   position: fixed;
-  bottom: 75px;
-  right: 10px;
+  bottom: 65px;
+  right: 5px;
   z-index: 9999;
   animation:  zoomInUp 280ms ease-out;
   opacity: 0.95;

@@ -107,11 +107,14 @@
 }
 
 .red-dot-src{
-    color: red !important;
-    font-size: 25px !important;
-    margin-left: 2px !important;
-    margin-right: 2px !important;
-    margin-top: 8px;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    background-color: red;
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    margin-bottom: 3px;
 }
 
 
@@ -142,9 +145,12 @@
    max-height: 30px;
    font-size: 18px;
     max-width: 90%;
-     margin:0px;
-    padding: 0px;
+     margin:0px !important;
+    padding: 0px !important;
+    word-break:break-all;
+    white-space:pre-wrap;
 }
+
 
 .text-style h4{
     margin:0px;
@@ -157,8 +163,9 @@
    line-height: 30px;
    max-height: 30px;
     max-width: 90%;
-     margin:0px;
-    padding: 0px;
+     margin:0px !important;
+    padding: 0px !important;
+    word-break: break-all;
 }
 
 @media only screen and (max-width:1000px) {
@@ -169,11 +176,16 @@
     .text-style{
         display: flex;
         justify-content: flex-start;
-        flex-grow: 1;
+        flex-grow:unset;
+        width: 60%;
         padding-left: 10px;
         font-size: 13px;
         padding-right: 0px !important;
+        
 
+    }
+    .def-movie-his{
+        justify-content: flex-start;
     }
     .red-dot-src{
         color: red !important;
@@ -209,7 +221,7 @@
          margin:0px;
         padding: 0px;
     }
-
+   
 }
 
 .def-movie-his:hover{

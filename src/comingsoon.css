@@ -107,39 +107,30 @@
 .genres-mapping{
     width: 95%;
     height: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: left;
-    margin-top: -18px;
-}
-
-.genre-childs-soon{
     color: white;
     font-size: 14px;
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 5px;
+    text-align: left;
+    margin-top: -8px;
+
 }
+
+
 .red-dot-src-soon{
-    color: red !important;
-    font-size: 20px !important;
+   
     margin-left: 5px !important;
-   margin-block: 0px;
-   padding-block: 0px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    margin-right: 5px !important;
+    background-color: red;
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    margin-bottom: 3px;
 }
 
 .soon-desc{
     font-size: 14px;
-    margin-top: -5px;
-    color: #6b5f5f;
+
+    color: gray;
     margin-bottom: 10px;
     text-overflow: ellipsis;
     word-wrap: break-word;

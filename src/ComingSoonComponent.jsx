@@ -79,17 +79,17 @@ function ComingSoonComponent({movie}) {
             <span className="soon-desc">
                {movie.overview}
             </span>
-            <div className="genres-mapping">
+            <span className="genres-mapping">
             {
                   genres !== [] ? (
                     
                     genres.map((genreItem) => (
-                       <span className="genre-childs-soon">{genreItem}  <span className="red-dot-src-soon">·</span></span>
+                       <>{genreItem}<div className="red-dot-src-soon"></div></>
                       ))
                     
                   ): ""
                 }
-            </div>
+            </span>
         </div>
     </div>
     )

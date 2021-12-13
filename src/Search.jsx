@@ -298,7 +298,7 @@ function searchAPI() {
                   item.genresData !== undefined ? (
                     
                       item.genresData.map((genreItem) => (
-                       <>{genreItem}  <span className="red-dot-src">·</span></>
+                       <>{genreItem}<div className="red-dot-src"></div></>
                       ))
                     
                   ): ""

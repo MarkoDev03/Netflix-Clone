@@ -31,10 +31,25 @@
      width: 100%;
      height: auto;
     object-fit: contain;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+ 
+    padding-block: 0px;
+    margin-block: 0px;
 }
 .row__poster{
     object-fit: contain;
     width: 100%;
+    height: auto;
+    background-color: rgba(124, 124, 124,0.4);
+    transition: transform 350ms;
+    border-radius: 5px;
+    cursor: grab;
+    animation: fader 400ms;
+}
+.row__poster_ten{
+    width: 50%;
     height: auto;
     background-color: rgba(124, 124, 124,0.4);
     transition: transform 350ms;
@@ -118,54 +133,50 @@
         font-size: 21x;
     }
 }
+.svg-place{
+    width: 30%;
+    height:auto;
+}
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 .row-index,.row-index-10{
-    position: absolute;
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    transform: translate(-0%,-50%);
+    
       font-weight: 100;
     font-family: 'Bungee Shade', cursive;
     color: rgb(206, 206, 206);
     text-shadow: 3px 3px 3px black;
+
+    font-size: 150px;
+    padding: 0px !important; 
+    margin: 0px !important;  
+    line-height: 150px;
 }
-.row-index{
-    font-size: 130px;
-}
+
 
 @keyframes scaleIn{
     0%{scale: 0;}
     100%{scale: 1;}
 }
-.row-index-10{
-    font-size: 130px;
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    transform: translate(-00%,-50%);
-}
+
 
 @media only screen and (max-width:600px) and (min-width:300px){
-    .row-index,.row-index-10{
-        position: absolute;
-        top: 30%;
-        left: 0%;
-        transform: translate(-0%,-50%);
-          font-weight: 100;
-        font-family: 'Bungee Shade', cursive;
-        color: rgb(206, 206, 206);
-        text-shadow: 3px 3px 3px black;
+    .rated{
+        align-items: flex-end;
     }
     .row-index{
-        font-size: 90px;
+        font-size: 120px; 
+        line-height: 120px;
+        padding: 0px !important; 
+        margin: 0px !important;  
+        display: flex;
+        justify-content: flex-end;
+        
     }
     .row-index-10{
-        font-size: 90px;
-        position: absolute;
-        top: 30%;
-        left: 0%;
-        transform: translate(-0%,-50%);
+        font-size: 120px; 
+        line-height: 120px;
+        padding: 0px !important; 
+        margin: 0px !important;  
+     
     }
     
 }
