@@ -137,7 +137,6 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
   //   fetchData();
   // }, [fetchURL]);
 
-
    function fetchData() {
  
     setMovies(
@@ -150,13 +149,15 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
     .then((data) => {
 
 
-     while (data.logos[0].file_path !== "" && data.logos[0].file_path !== null && data.logos[0].file_path !== undefined) {
+     if (data.logos[0].file_path !== "" && data.logos[0].file_path !== null && data.logos[0].file_path !== undefined) {
       setMovies(
         allMovies[
           Math.floor(Math.random() * allMovies.length)
         ]
       );
       setLogo(data.logos[0].file_path)
+     }else{
+       fetchData()
      }
     })
 ;
@@ -167,7 +168,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies?.poster_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`,
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
       }}
@@ -234,18 +235,18 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
                 : "banner_description"
             }
           >
-            {movies?.overview || ""}
+            {/* {movies?.overview || ""} */}
           </h1>
         </div>
       </div>
       <div className="swiper-original">
         {isBannerInMiddle ? (
-          <Row title={title} fetchURL={fetchURL} key={1} isLaregeRow></Row>
+          <Row title={title} fetchURL={fetchURL} key={1} ></Row>
         ) : (
           ""
         )}
         {!isBannerInMiddle && window.innerWidth > 900 ? (
-          <Row title={title} fetchURL={fetchURL} key={1} isLaregeRow></Row>
+          <Row title={title} fetchURL={fetchURL} key={1} ></Row>
         ) : (
           ""
         )}

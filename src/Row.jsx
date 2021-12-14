@@ -154,9 +154,9 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
         1400: { slidesPerView: 5.2, spaceBetween: 10 },
         1000: { slidesPerView: 5.2, spaceBetween: 10 },
         700: { slidesPerView: 4.2, spaceBetween: 10 },
-        500: { slidesPerView: 2, spaceBetween: 5 },
-        400: { slidesPerView: 2, spaceBetween: 5 },
-        300: { slidesPerView: 2, spaceBetween: 5 },
+        500: { slidesPerView: 2.5, spaceBetween: 5 },
+        400: { slidesPerView: 2.5, spaceBetween: 5 },
+        300: { slidesPerView: 2.5, spaceBetween: 5 },
       }
     }
   }

@@ -218,6 +218,8 @@
 
 .swiper-original {
   margin-top: 20px;
+  display: flex;
+  z-index: 999;
 }
 
 #banner-content-id {
