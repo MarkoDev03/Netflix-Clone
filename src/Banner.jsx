@@ -5,7 +5,6 @@ import Row from "./Row";
 import Requests from "./requests";
 import Buttons from "./Buttons";
 import Logo from "./netflix-logo.png";
-import Geners from "./Gener";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRedo } from "@fortawesome/free-solid-svg-icons";
 import './comingsoon.css'
@@ -120,9 +119,23 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
    fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
  .then((response) => response.json())
  .then((data) => {
-  setLogo(data.logos[0].file_path)
- })
-  }, [movies])
+  if (data.logos[0].file_path !== "" && data.logos[0].file_path !== null && data.logos[0].file_path !== undefined) {
+    setMovies(
+      allMovies[
+        Math.floor(Math.random() * allMovies.length)
+      ]
+    );
+    setLogo(data.logos[0].file_path)
+   }else{
+    setMovies(
+      allMovies[
+        Math.floor(Math.random() * allMovies.length)
+      ]
+    );
+   }
+  })
+
+  }, [movies, allMovies])
 
   // useLayoutEffect(() => {
   //   async function fetchData() {
@@ -210,6 +223,15 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             </h1>
               )
           }
+           {/* <h1
+            className={
+              !isBannerInMiddle && window.innerWidth < 900
+                ? "fade-none"
+                : "banner_description"
+            }
+          >
+            {movies?.overview || ""} 
+          </h1> */}
           </div>
           <span className="genres-mapping mapbanner">
             {
@@ -228,15 +250,6 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
          movie={movies}
         classBtn={isBannerInMiddle? "align_left banner_buttons": "align_middle banner_buttons"}></Buttons>) :
          ""}
-          <h1
-            className={
-              !isBannerInMiddle && window.innerWidth < 900
-                ? "fade-none"
-                : "banner_description"
-            }
-          >
-            {/* {movies?.overview || ""} */}
-          </h1>
         </div>
       </div>
       <div className="swiper-original">
@@ -261,7 +274,6 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
       ></div>
       {!isBannerInMiddle && window.innerWidth < 900 ? (
         <div className="fade-geners">
-          <Geners></Geners>
           <Buttons classBtn="align_middle_btns banner_buttons b-mds" movie={movies}></Buttons>
         </div>
       ) : (

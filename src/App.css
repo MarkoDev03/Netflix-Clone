@@ -2,6 +2,7 @@
   text-align: center; 
   overflow-x: hidden;
   animation: loads 500ms;
+  background-color: #141414;
 }
 
 *,html{
@@ -80,6 +81,10 @@ body{
   /* width */
 ::-webkit-scrollbar {
   width: 0px;
+}
+.App {
+
+  background-color: black;
 }
 
 /* Track */

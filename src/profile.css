@@ -23,7 +23,16 @@
     text-align: left;
     border-bottom: .5px solid rgb(97, 97, 97);
     padding: 0px;
-    height: 84px;
+    line-height: 65px;
+    margin: 0px;
+}
+.wrp-profile-main{
+    width: 100%;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .profile__wrapper{
     width: 100%;
@@ -31,8 +40,9 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
-    margin-top: -35px;
+    padding-top: 0px !important;
     text-align: left;
+    margin-top: 3px;
 }
 
 .logo{
@@ -212,6 +222,9 @@
 @media only screen and (max-width:535px) and (min-width:300px) {
     .profile{    
          width: 90%;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
      }
      .username{
          font-size: 20px;
@@ -263,6 +276,8 @@
     border-bottom: .5px solid rgb(97, 97, 97);
     padding: 0px;
     height: auto;
-    margin-bottom: 40px;
+     line-height: 45px; 
+    padding-bottom: 0px;
+    margin: 0px;
 }
 }

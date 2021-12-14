@@ -22,8 +22,8 @@ function App({ user }) {
       <NavBar username={user}></NavBar>
       <Footer />
       <Banner
-        fetchURL={Requests.fetchTrending}
-        title="Trending Now"
+        fetchURL={Requests.fetchNetflixOriginals}
+        title="Netflix Original"
       ></Banner>
 
       {window.innerWidth < 900 ? (
@@ -36,12 +36,14 @@ function App({ user }) {
       ) : (
         ""
       )}
-      <Row title="Trending Now" fetchURL={Requests.fetchTrending} key={2}></Row>
+      
       <Row
         title="Mystery Movies and Shows"
         fetchURL={Requests.fetchMyster}
         key={11}
       ></Row>
+
+<Row title="Trending Now" fetchURL={Requests.fetchTrending} key={2}></Row>
       <Row
         title="Only on Netflix"
         fetchURL={Requests.fetchNetflixOriginals}

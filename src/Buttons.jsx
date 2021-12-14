@@ -59,8 +59,10 @@ function Buttons({ classBtn, movie }) {
   }
   return (
     <div className="flag-div">
+        {
+          window.innerWidth < 900 ? (
       <div className={classBtn}>
-        <button className="banner_button flex-btn" onClick={addToListMovie}>
+            <button className="banner_button flex-btn" onClick={addToListMovie}>
           {added === false ? <PlusLg  className="iconic" /> : <CheckLg className="iconic" />}
           My List
         </button>
@@ -78,6 +80,26 @@ function Buttons({ classBtn, movie }) {
           Info
         </button>
       </div>
+          ): (
+            <div className={classBtn}>
+  
+        <button className="PlayMedia">
+          <FontAwesomeIcon
+            icon={faPlay}
+            className="iconic-media"
+          ></FontAwesomeIcon>
+          Play
+        </button>
+        <button className="infoMedia">
+          <InfoCircle
+            className="iconic-media"
+          />
+          More
+          Info
+        </button>
+      </div>
+          )
+        }
     </div>
   );
 }

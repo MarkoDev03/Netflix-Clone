@@ -2,7 +2,7 @@
 
 .row{
    text-align: left;
-   width: 100%;
+   width: 97%;
    height: 150px;
    margin-left: auto;
    margin-right: auto;
@@ -10,11 +10,10 @@
    text-shadow: 1px 1px 1px black;
    z-index: 5;
    height: fit-content;
-   margin-top: -10px;
+   margin-top: 30px;
+}
 
-   
- 
-}#background-video{
+#background-video{
 
     height: 100%;
     width: 100%;
@@ -76,6 +75,7 @@
     z-index: 9;
 }
 .row-title{
+    font-size: 25px;
     margin-left: 10px;/*ovo*/
 }
 .row__posters{
@@ -125,12 +125,17 @@
         padding-top: 2px;
         padding-bottom: 2px;
     }
+    .row{
+        width: 100%;
+        margin-top: -10px;
+     }
+     
     .row__poster:hover{
         transform: scale(1.02);
     }
     .row-title{
         margin-bottom: 17px;
-        font-size: 21x;
+        font-size: 21px;
     }
 }
 .svg-place{

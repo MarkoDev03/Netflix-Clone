@@ -75,13 +75,6 @@ function Profile() {
     return userIsLoggedIn;
   }, [history]);
 
-  // const deleteSearchHistory = () => {
-  //   auth.onAuthStateChanged((user) => {
-  //     database.ref("search-history/" + user.uid).remove()
-  //   })
-  //   localStorage.setItem("search-history",null)
-  // }
-
   const signOut = () => {
     auth.signOut();
     setUsername("");
@@ -130,6 +123,7 @@ function Profile() {
   return (
     <div className="user-profile">
       <Navbar username={username} isProfile={true}></Navbar>
+      <div className="wrp-profile-main">
       <div className="profile">
         <h1 className="edit-headline">Edit Profile</h1>
         <div className="profile__wrapper">
@@ -173,6 +167,7 @@ function Profile() {
           SIGN OUT
         </button>
       </div>
+    </div>
     </div>
   );
 }
