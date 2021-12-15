@@ -82,7 +82,13 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
      if (data.logos.length > 0) {
        setMovies(item);
        setLogo(data.logos[0].file_path)
-      } 
+      }  else {
+        
+         random = Math.floor(Math.random() * moviesIn.length)
+
+         item = moviesIn[random]
+    
+      }
       
      })
 
