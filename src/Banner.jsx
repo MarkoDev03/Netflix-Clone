@@ -38,7 +38,6 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
           const data18 = await Axios.get(Requests.fetchComedyMovies);
           const data19 = await Axios.get(Requests.fetchFantasy);
           var moviesIn = [];
-          
     
           moviesIn = [
             ...data9.data.results,
@@ -68,41 +67,30 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
               self.findIndex(
                 (t) => t.poster_path === thing.poster_path && t.id === thing.id
               )
-          );    
+          );
 
-        
+          localStorage.setItem("allmovies",JSON.stringify(moviesIn))
+          setAllMovies(localStorage.getItem("allmovies") ? JSON.parse(localStorage.getItem("allmovies")) : moviesIn);
 
-           moviesIn.forEach((movie) => {
-            fetch(`https://api.themoviedb.org/3/movie/${movie.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
-            .then((response) => response.json())
-            .then((data) => {
-               console.log(data.logos);
+          var random = Math.floor(Math.random() * moviesIn.length)
 
-              
-               if (data.logos !== undefined) {
-             if (data.logos.length === 0 ) {
-                
-   
-               moviesIn.splice(moviesIn.indexOf(movie), 1);
-              }
+    var item = moviesIn[random]
 
-            }
-              
-             })
-           })
+    fetch(`https://api.themoviedb.org/3/movie/${item.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
+    .then((response) => response.json())
+    .then((data) => {
+     if (data.logos.length > 0) {
+       setMovies(item);
+       setLogo(data.logos[0].file_path)
+      } 
+      
+     })
 
-    
-
-       setTimeout(() => {
-        localStorage.setItem("allmoviesbanner",JSON.stringify(moviesIn))
-        setAllMovies(localStorage.getItem("allmoviesbanner") ? JSON.parse(localStorage.getItem("allmoviesbanner")) : moviesIn);
-
-       }, 2000);
-          setMovies(
-            moviesIn[
-                     Math.floor(Math.random() * moviesIn.length)
-                ]
-                );
+          // setMovies(
+          //   moviesIn[
+          //            Math.floor(Math.random() * moviesIn.length)
+          //       ]
+          //       );
         }
     
         FetchDataFromAPI();
@@ -141,20 +129,27 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
 
   const base_image_url = "https://image.tmdb.org/t/p/original/";
 
+
   useLayoutEffect(() => {
 
    
     fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
     .then((response) => response.json())
     .then((data) => {
-  
+     if (data.logos.length > 0) {
+       setMovies(
+         allMovies[
+           Math.floor(Math.random() * allMovies.length)
+         ]
+       );
        setLogo(data.logos[0].file_path)
-      
+      } 
       
      })
  
 
   }, [movies, allMovies])
+
 
   // useLayoutEffect(() => {
   //   async function fetchData() {
@@ -170,7 +165,6 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
   // }, [fetchURL]);
 
    function fetchData() {
-     console.log(allMovies.length);
  
     setMovies(
       allMovies[
@@ -182,9 +176,16 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
     .then((data) => {
 
 
-    
+     if (data.logos[0].file_path !== "" && data.logos[0].file_path !== null && data.logos[0].file_path !== undefined) {
+      setMovies(
+        allMovies[
+          Math.floor(Math.random() * allMovies.length)
+        ]
+      );
       setLogo(data.logos[0].file_path)
-    
+     }else{
+       fetchData()
+     }
     })
 
   }
