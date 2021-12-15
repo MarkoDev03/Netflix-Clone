@@ -114,8 +114,8 @@
   background-image: linear-gradient(
     180deg,
     transparent,
-    rgba(0, 0, 0, 0.4),
-    rgb(0, 0, 0)
+    rgba(20, 20, 20, 0.7),
+    rgb(20, 20, 20)
   );
   z-index: 2 ;
   display: flex;
@@ -168,6 +168,14 @@
   .banner_buttons {
     width: 100%;
     display: flex;
+  }
+  .fade--bottom{
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(0, 0, 0, 0.4),
+      rgb(0, 0, 0)
+    );
   }
   .banner{
     height:70vh;
@@ -475,7 +483,7 @@
   .mapbanner{
     visibility: visible !important;
     text-align: center !important;
-    margin-bottom: -40px;
+    margin-bottom: -27px;
     margin-top: 30px !important;
     width: 100% !important;
   }
