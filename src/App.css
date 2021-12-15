@@ -5,6 +5,7 @@
   background-color: #141414;
 }
 
+
 *,html{
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
@@ -33,6 +34,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+body{
+  background-color: #141414;
 }
 
 .App-link {
@@ -84,6 +89,9 @@ body{
 }
 .App {
 
+  background-color: black;
+}
+body{
   background-color: black;
 }
 
