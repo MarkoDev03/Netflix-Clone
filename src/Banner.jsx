@@ -38,7 +38,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
           const data18 = await Axios.get(Requests.fetchComedyMovies);
           const data19 = await Axios.get(Requests.fetchFantasy);
           var moviesIn = [];
-          var newMovieArray = []
+          
     
           moviesIn = [
             ...data9.data.results,
