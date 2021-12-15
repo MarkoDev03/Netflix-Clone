@@ -150,15 +150,15 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
     .then((data) => {
 
 
-     if (data.logos[0].file_path !== "" && data.logos[0].file_path !== null && data.logos[0].file_path !== undefined) {
+     if (data.logos.length > 0) {
+
+      setLogo(data.logos[0].file_path)
+     }else{
       setMovies(
         allMovies[
           Math.floor(Math.random() * allMovies.length)
         ]
       );
-      setLogo(data.logos[0].file_path)
-     }else{
-       fetchData()
      }
     })
 
