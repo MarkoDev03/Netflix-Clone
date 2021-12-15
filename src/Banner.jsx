@@ -72,31 +72,11 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
           localStorage.setItem("allmovies",JSON.stringify(moviesIn))
           setAllMovies(localStorage.getItem("allmovies") ? JSON.parse(localStorage.getItem("allmovies")) : moviesIn);
 
-          var random = Math.floor(Math.random() * moviesIn.length)
 
-    var item = moviesIn[random]
-
-    fetch(`https://api.themoviedb.org/3/movie/${item.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
-    .then((response) => response.json())
-    .then((data) => {
-     if (data.logos.length > 0) {
-       setMovies(item);
-       setLogo(data.logos[0].file_path)
-      }  else {
-        
-         random = Math.floor(Math.random() * moviesIn.length)
-
-         item = moviesIn[random]
-    
-      }
-      
-     })
-
-          // setMovies(
-          //   moviesIn[
-          //            Math.floor(Math.random() * moviesIn.length)
-          //       ]
-          //       );
+           setMovies(
+             moviesIn[
+                      Math.floor(Math.random() * moviesIn.length)
+                 ]);
         }
     
         FetchDataFromAPI();
@@ -138,37 +118,25 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
 
   useLayoutEffect(() => {
 
-   
     fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
     .then((response) => response.json())
     .then((data) => {
      if (data.logos.length > 0) {
-       setMovies(
-         allMovies[
-           Math.floor(Math.random() * allMovies.length)
-         ]
-       );
+      
        setLogo(data.logos[0].file_path)
-      } 
+      } else {
+        setMovies(
+          allMovies[
+            Math.floor(Math.random() * allMovies.length)
+          ]
+        );
+      }
       
      })
  
 
   }, [movies, allMovies])
 
-
-  // useLayoutEffect(() => {
-  //   async function fetchData() {
-  //     const request = await Axios.get(fetchURL);
-  //     setMovies(
-  //       request.data.results[
-  //         Math.floor(Math.random() * request.data.results.length)
-  //       ]
-  //     );
-  //     return request;
-  //   }
-  //   fetchData();
-  // }, [fetchURL]);
 
    function fetchData() {
  
