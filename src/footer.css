@@ -31,3 +31,8 @@
     color: white;
     transition: 285ms;
 }
+
+.block-footer:active {
+    transition: 205ms;
+    transform: scale(0.8);
+}
