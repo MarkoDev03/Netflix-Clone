@@ -106,8 +106,19 @@
 .logomoviesoonbanner{
   max-height: 250px;
   max-width: 65%;
-
+  animation-delay: 500;
+  animation: loadLogo 380ms ease-in-out;
 }
+
+
+@keyframes loadLogo {
+   0% {
+     transform: scale(1.7);
+   }
+   100%{
+     transform: scale(1);
+   }
+} 
 .fade--bottom {
   height: 200px;
   width: 100%;
@@ -479,6 +490,7 @@
   }
   .logomoviesoonbanner{
     margin-bottom: 50px !important;
+    animation: none;
   }
   .mapbanner{
     visibility: visible !important;

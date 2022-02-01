@@ -10,10 +10,11 @@ import { faRedo } from "@fortawesome/free-solid-svg-icons";
 import './comingsoon.css'
 
 function Banner({ title, fetchURL, isBannerInMiddle }) {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState({genre_ids:[]});
   const [logo, setLogo] = useState("")
   const [genres, setGenres] = useState(["Horror", "Action", "Drama", "Western"]); 
   var [allMovies, setAllMovies] = useState([]);
+  var [bannerMovies, setBannerMovies] = useState([]);
 
     useLayoutEffect(() => {
 
@@ -69,19 +70,64 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
               )
           );
 
-          localStorage.setItem("allmovies",JSON.stringify(moviesIn))
+          localStorage.setItem("allmovies", JSON.stringify(moviesIn))
           setAllMovies(localStorage.getItem("allmovies") ? JSON.parse(localStorage.getItem("allmovies")) : moviesIn);
 
+
+          if (localStorage.getItem("bannerMovies")) { 
+             let getLogos = JSON.parse(localStorage.getItem("bannerMovies"));
+
+             setBannerMovies(getLogos)
+             
+           setMovies(
+            getLogos[
+                     Math.floor(Math.random() * getLogos.length)
+                ]);
+          } else {
 
            setMovies(
              moviesIn[
                       Math.floor(Math.random() * moviesIn.length)
                  ]);
+                }
         }
     
         FetchDataFromAPI();
 
       }, []);
+
+      const base_image_url = "https://image.tmdb.org/t/p/original";
+
+      useLayoutEffect(() => {
+
+        if (localStorage.getItem("bannerMovies")) {
+          let getLogos = JSON.parse(localStorage.getItem("bannerMovies"));
+          const item = getLogos.find((item) => item.id === movies.id);
+          if (item !== undefined) {
+            setLogo(item.logo)
+          }
+        } else {
+    
+        fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
+        .then((response) => response.json())
+        .then((data) => {
+         
+         if (data.logos.length > 0) {
+           setLogo(data.logos[0].file_path)
+          } else {
+            setMovies(
+              allMovies[
+                Math.floor(Math.random() * allMovies.length)
+              ]
+            );
+            return;
+          }
+          
+         })
+        }
+      
+      }, [movies, allMovies])
+    
 
 
   useLayoutEffect(() => {
@@ -89,8 +135,8 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
       const data = await Axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=1ac954f3a80a366794602b75222bbf8e&language=en-US");
     
       var resultGenres = []
-      
-      if (movies.genre_ids.length > 1) {
+      if (movies !== undefined) {
+      if (movies?.genre_ids.length > 1) {
         data.data.genres.forEach((genre) => {
           movies.genre_ids.forEach((item) => {
             if ( +genre.id === +item) {
@@ -105,63 +151,46 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             }
         })
        }
-
+      }
        setGenres(resultGenres)
     }
     
     getGeners()
-  }, [movies.genre_ids])
- 
-
-  const base_image_url = "https://image.tmdb.org/t/p/original/";
+  }, [movies.genre_ids, movies])
 
 
-  useLayoutEffect(() => {
-
-    fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
-    .then((response) => response.json())
-    .then((data) => {
+   useLayoutEffect(() => {
+    const getMoviesWithLogo = () => {
+      let getResults = []
+      if (!localStorage.getItem("bannerMovies")) {
+      allMovies.forEach((movie) => {
+        fetch(`https://api.themoviedb.org/3/movie/${movie.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
+         .then((response) => response.json())
+        .then((data) => {
      if (data.logos.length > 0) {
-      
-       setLogo(data.logos[0].file_path)
-      } else {
-        setMovies(
-          allMovies[
-            Math.floor(Math.random() * allMovies.length)
-          ]
-        );
-      }
-      
-     })
- 
-
-  }, [movies, allMovies])
-
-
-   function fetchData() {
- 
-    setMovies(
-      allMovies[
-        Math.floor(Math.random() * allMovies.length)
-      ]
-    );
-    fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
-    .then((response) => response.json())
-    .then((data) => {
-
-
-     if (data.logos.length > 0) {
-
-      setLogo(data.logos[0].file_path)
-     }else{
-      setMovies(
-        allMovies[
-          Math.floor(Math.random() * allMovies.length)
-        ]
-      );
+        let dataFound = movie;
+        dataFound.logo = data.logos[0].file_path;
+        getResults.push(dataFound)
+        localStorage.setItem("bannerMovies", JSON.stringify(getResults))
      }
     })
+      })
+    }
+  }
 
+   getMoviesWithLogo();
+
+   }, [allMovies]);
+  
+   function fetchData() {
+
+    setMovies(
+      bannerMovies[
+        Math.floor(Math.random() * bannerMovies.length)
+      ]
+    );
+   
+      setLogo(movies.logo)
   }
 
   return (
@@ -194,8 +223,6 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             ) : (
               ""
             )}
-           
-
             {
               logo !== "" && logo !== null && logo !== undefined ? (
                 <img src={base_image_url + logo} alt="" className="logomoviesoonbanner" loading="lazy" />
@@ -270,8 +297,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
      
       <div className="movie-changer">
         <FontAwesomeIcon
-          icon={faRedo}
-          
+          icon={faRedo} 
           className="refresh-icon"
           onClick={fetchData}
         ></FontAwesomeIcon>

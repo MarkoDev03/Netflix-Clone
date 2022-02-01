@@ -8,6 +8,7 @@
 
 *,html{
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
 }
 @keyframes loads{
   0%{transform: translate(100%);}
@@ -37,6 +38,8 @@
 }
 
 body{
+  margin: 0;
+  padding: 0;
   background-color: #141414;
 }
 
@@ -54,12 +57,13 @@ body{
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 0px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: transparent;
+  width: 0px;
 }
 
 /* Handle */
@@ -67,6 +71,7 @@ body{
   background: transparent;
   height: 50px;
   border-radius: 10px;
+  width: 0px;
 }
 
 /* Handle on hover */

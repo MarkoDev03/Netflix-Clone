@@ -23,9 +23,8 @@
     z-index: 99999;
     padding: none;
     position: fixed; /* optional depending on what you want to do in your app */
-    
-    
-    }
+}
+
 .rated{
      width: 100%;
      height: auto;
@@ -37,6 +36,7 @@
     padding-block: 0px;
     margin-block: 0px;
 }
+
 .row__poster{
     object-fit: contain;
     width: 100%;
@@ -91,6 +91,7 @@
         transform: scale(1);
     }
   }
+
 .swiper_slide_large{
     display: flex;
     justify-content: center;
@@ -98,17 +99,16 @@
     height: fit-content;
     padding-top: 10px;
     padding-bottom: 10px;
-     
- 
 }
+
 .swiper_slide{
     display: flex;
     justify-content: center;
     align-items: center;
     height: fit-content;
-        padding-top: 10px;
-        animation: scaleIn 500ms;
-        padding-bottom: 10px;
+    padding-top: 10px;
+    animation: scaleIn 500ms;
+    padding-bottom: 10px;
       
 }
 
@@ -116,8 +116,6 @@
     margin: 0px;
     padding: 0px;
 }
-
-
 
 @media only screen and (max-width:900px) and (min-width:300px) {
     .swiper_slide{
@@ -138,10 +136,12 @@
         font-size: 21px;
     }
 }
+
 .svg-place{
     width: 30%;
     height:auto;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 .row-index,.row-index-10{
     

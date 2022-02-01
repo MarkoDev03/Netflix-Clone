@@ -12,6 +12,7 @@ function Profile() {
   const [day, setDay] = useState(1);
   const [month, setMonth] = useState(1);
   const [year, setYear] = useState(2002);
+  
   const history = useHistory();
 
   const plan = [
