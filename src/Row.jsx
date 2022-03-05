@@ -80,6 +80,7 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
                     className="row__poster_ten"
                     onClick={() => movieClick(movie)}
                     loading="lazy"
+                    crossOrigin="Anonymous"
                   />
                  
                 </div>
@@ -102,6 +103,7 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
                     className="row__poster"
                     onClick={() => movieClick(movie)}
                     loading="lazy"
+                    crossOrigin="Anonymous"
                   />
                 </div>
               </SwiperSlide>
