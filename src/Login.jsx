@@ -21,7 +21,7 @@ function Login() {
         history.push("/home")
       }
     })
-  }, [])
+  }, [history])
 
   return (
     <div className="loginScreen">
