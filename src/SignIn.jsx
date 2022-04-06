@@ -58,6 +58,11 @@ function SignIn({ email, signUp }) {
       .catch((error) => {
        setError(true)
        setMessage(error.message)
+
+       setTimeout(() => {
+        setError(false)
+        setMessage("")
+       }, 2500);
       });
   };
 
@@ -72,6 +77,11 @@ function SignIn({ email, signUp }) {
     }).catch((error) => {
        setError(true)
        setMessage(error.message)
+
+       setTimeout(() => {
+        setError(false)
+        setMessage("")
+       }, 2500);
     })
   }
 
@@ -100,6 +110,11 @@ function SignIn({ email, signUp }) {
       .catch((error) => {
         setError(true)
        setMessage(error.message)
+
+       setTimeout(() => {
+        setError(false)
+        setMessage("")
+       }, 2500);
       });
   };
 

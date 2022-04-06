@@ -4,7 +4,7 @@
 .loginScreen {
   width: 100%;
   height: 100vh;
-  animation: fadeIn 950ms;
+  animation: fadeIn 950ms !important;
 
   background-size: cover;
   background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/9b1cc4b3-40f2-4bfa-9006-28f7a0aedb45/c1535521-dd00-4b62-816b-2f6b9df96426/RS-en-20210513-popsignuptwoweeks-perspective_alpha_website_small.jpg");
@@ -84,7 +84,7 @@
 }
 .login_div{
   width: 40%;
-  background-color: rgb(2, 2, 2);
+  background-color: transparent !important;
   display: flex;
   justify-content: center;
   align-items: flex-start;

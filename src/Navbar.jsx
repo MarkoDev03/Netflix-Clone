@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, {  useState, useEffect } from "react";
 import Logo from "./netflix-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Search } from 'react-bootstrap-icons';
@@ -20,7 +20,7 @@ function Navbar({ isSignUpScreen, onSignIn, username, isProfile }) {
   const [show, handleShow] = useState(false);
  
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
         handleShow(true);
@@ -29,6 +29,10 @@ function Navbar({ isSignUpScreen, onSignIn, username, isProfile }) {
       }
     
     });
+
+    return () => {
+      handleShow(false);
+    }
   }, []);
 
   return (

@@ -140,9 +140,10 @@ function Avatar() {
                 className="whoswathcing"
                 width={30}
                 height={30}
-                loading="lazy"
                 alt=""
                 id="avatar"
+                loading="lazy"
+                crossOrigin="anonymous"
               />
             </Link>
             <FontAwesomeIcon icon={faSortDown} className="switch" />
@@ -177,6 +178,7 @@ function Avatar() {
                   key={item.url}
                   style={{marginTop:'7px'}}
                   loading="lazy"
+                  crossOrigin="anonymous"
                   onClick={() => {
                     setNewAvatar(item.url);
                   }}

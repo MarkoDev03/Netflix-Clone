@@ -46,9 +46,20 @@
 }
 
 .logo{
-    width: 100px;
-    height: 100px;
+    width: 98px;
+    height: 98px;
+    transition: 285ms ease-in;
+    cursor: pointer;
+    border: 2px solid transparent;
 }
+
+.logo:hover {
+    /* transform: scale(0.9); */
+    transition: 285ms ease-in;
+    
+    border: 2px solid red;
+}
+
 .info-user{
     width: calc(100% - 120px);
     height: 100px;
@@ -114,6 +125,7 @@
     outline: none;
     font-size: 20px;
     cursor: pointer;
+    transition: 285ms ease-in-out;
 }
 .plan-data{
     display: flex;
@@ -161,10 +173,11 @@
     margin-top: 10px;
     cursor: pointer;
     margin-left:120px ;
+    transition: 285ms ease-in-out;
 }
 .logout-btn:hover,.subscribe:hover{
     background-color: rgb(155, 3, 3);
-    transition: 285ms;
+    transition: 285ms ease-in;
 }
 
 .user-profile{

@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, useEffect } from "react";
 import { auth, database } from "./Firebase";
 import Navbar from "./Navbar";
 import { useHistory } from "react-router-dom";
@@ -109,15 +109,22 @@ function Profile() {
     });
   };
 
-  setTimeout(() => {
-    var hd = document.getElementById("info-user").clientWidth;
-
-    if (window.innerWidth > 900) {
-      document.getElementById("pl-all").style.width = hd + "px";
-      document.getElementById("signout").style.width = hd + "px";
-      document.getElementById("history").style.width = hd + "px";
-    }
-  },10);
+  useEffect(() => {
+   setTimeout(() => {
+      try {
+        var hd = document.getElementById("info-user").clientWidth;
+  
+      if (window.innerWidth > 900) {
+        document.getElementById("pl-all").style.width = hd + "px";
+        document.getElementById("signout").style.width = hd + "px";
+        document.getElementById("history").style.width = hd + "px";
+      }
+      } catch(error) {
+        console.log(error);
+      }
+   }, 100);
+    
+  }, []);
 
   var plans = "Plans (Current Plan: "  + planName + ")";
 
@@ -128,13 +135,17 @@ function Profile() {
       <div className="profile">
         <h1 className="edit-headline">Edit Profile</h1>
         <div className="profile__wrapper">
-          <img src={auth.currentUser.photoURL} alt="" className="logo" onClick={() => history.push("/profile/"+username+"/change-avatar")} />
+          <img src={auth.currentUser.photoURL} alt="" className="logo" onClick={() => history.push("/profile/"+username+"/change-avatar")}
+           loading="lazy"
+           crossOrigin="anonymous"
+          />
           <div className="info-user" id="info-user">
             <input
               type="text"
               name="email"
               id="email-user"
               className="username"
+              readOnly={true}
               defaultValue={email}
             />
             <p className="plans premium">{plans}</p>

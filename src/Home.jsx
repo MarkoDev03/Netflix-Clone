@@ -18,7 +18,7 @@ function App({ user }) {
   }, [history])
 
   return (
-    <div>
+    <div className="home">
       <NavBar username={user}></NavBar>
       <Footer />
       <Banner

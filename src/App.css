@@ -6,6 +6,10 @@
 }
 
 
+/* .home {
+   animation: ScaleIn 205ms ease-in !important;
+} */
+
 *,html{
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
@@ -13,6 +17,11 @@
 @keyframes loads{
   0%{transform: translate(100%);}
   100%{transform: translate(0%);}
+}
+
+@keyframes ScaleIn{
+  0%{padding: 35px; opacity: 0;}
+  100%{padding: 0px; opacity: 1;}
 }
 
 .App-logo {
@@ -92,6 +101,10 @@ body{
 ::-webkit-scrollbar {
   width: 0px;
 }
+.home {
+  animation: none !important;
+}
+
 .App {
 
   background-color: black;

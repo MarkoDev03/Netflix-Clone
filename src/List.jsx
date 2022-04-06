@@ -62,6 +62,8 @@ export default function List({ movies }) {
                 width={30}
                 height={30}
                 alt=""
+                loading="lazy"
+                crossOrigin="anonymous"
               />
             </Link>
             <FontAwesomeIcon icon={faSortDown} className="switch" />
@@ -70,16 +72,18 @@ export default function List({ movies }) {
       </header>
       <div className="list-div">
         <div className="list-wrapper" id="list">
-          {movies.map((item) => (
+          {movies.map((item, index) => (
             <img
               src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
               alt=""
               className="movie"
-              key={item.id}
+              key={index}
               id={item.id}
               onClick={() => {
                 MovieClick(item);
               }}
+              loading="lazy"
+              crossOrigin="anonymous"
             />
           ))}
         </div>

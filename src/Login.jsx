@@ -1,8 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import NavBar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SignIn from './SignIn';
+import { auth } from "./Firebase";
+import { useHistory } from "react-router-dom";
 import "./login.css";
 import "./signin.css";
 
@@ -11,6 +13,15 @@ function Login() {
   const [signIn,setSignIn] = useState(false);
   const emailRef = useRef('');
 
+  const history = useHistory()
+
+  useLayoutEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        history.push("/home")
+      }
+    })
+  }, [])
 
   return (
     <div className="loginScreen">

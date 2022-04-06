@@ -22,13 +22,17 @@
   padding-bottom: 30px;
   flex-grow: 1;
   background-color: rgba(124, 124, 124,0.4);
-  animation: fadeIn 1000ms;
+ 
   background-image: linear-gradient(
     180deg,
     transparent,
     rgba(0, 0, 0, 0.4),
     rgb(0, 0, 0)
   );
+  animation: fadeIn 450ms;
+}
+
+.animatebanner {
 }
 
 .banner_content {
@@ -107,6 +111,9 @@
   max-height: 250px;
   max-width: 65%;
   animation-delay: 500;
+}
+
+.animatebannerlogo {
   animation: loadLogo 380ms ease-in-out;
 }
 
@@ -499,4 +506,11 @@
     margin-top: 35px !important;
     width: 100% !important;
   }
+}
+
+.genres-itms {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }

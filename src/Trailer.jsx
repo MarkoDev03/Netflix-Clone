@@ -61,16 +61,27 @@ function Trailer({movies}) {
   const [loadtext, setLoad] = useState(false);
   const [list, setList] = useState(false);
   const [payload, setPayload] = useState(false);
+  const [logo, setLogo] = useState(null);
 
   useLayoutEffect(() => {
     if (movies === "") {
-      setMoviesTrailer("");
+      //setMoviesTrailer("");
 
     } else {
       setMoviesTrailer(movies);
       setPayload(true)
       var user = auth.currentUser;
       var ids = [];
+
+      fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
+      .then((response) => response.json())
+      .then((data) => {
+       
+       if (data?.logos?.length > 0) {
+         console.log(data.logos[0].file_path);
+         setLogo(data.logos[0].file_path)
+        }
+      })
 
       if (user) {
         database.ref("list/" + user.uid + "/").on("child_added", (snapshot) => {
@@ -154,12 +165,17 @@ function Trailer({movies}) {
             <div className="N-series">
               <img src={Nseries} alt="" className="N-S" />
             </div>
-            <h3 className="movie-headline-trailer">
+            {/*  */}
+            {
+              logo == null ? (<h3 className="movie-headline-trailer">
               {movieTrailer?.original_name ||
                 movieTrailer?.original_title ||
                 movieTrailer?.name ||
                 movieTrailer?.title}
-            </h3>
+            </h3>): (
+                <img src={base_image_url + logo} alt="" className="logo-movie" loading="lazy" crossOrigin="anonymous" />
+              )
+            }
             <div className="fade-img"></div>
           </div>
           <div className="bar">
@@ -265,8 +281,8 @@ function Trailer({movies}) {
             className="options"
             style={{ marginLeft: "10px", height: "40px", marginTop: "-10px" }}
           >
-            {geners.map((item) => (
-              <p className={item.class} key={item.text}>
+            {geners.map((item, index) => (
+              <p className={item.class} key={index}>
                 {item.text}
               </p>
             ))}

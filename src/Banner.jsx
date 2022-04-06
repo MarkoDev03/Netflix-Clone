@@ -112,7 +112,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
         .then((response) => response.json())
         .then((data) => {
          
-         if (data.logos.length > 0) {
+         if (data?.logos?.length > 0) {
            setLogo(data.logos[0].file_path)
           } else {
             setMovies(
@@ -127,8 +127,6 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
         }
       
       }, [movies, allMovies])
-    
-
 
   useLayoutEffect(() => {
     async function getGeners() {
@@ -190,12 +188,24 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
       ]
     );
    
+    try {
+        document.getElementById('logo').classList.add("animatebannerlogo")
+        document.getElementById('banner').classList.add("animatebanner")
+
+        setTimeout(() => {
+          document.getElementById('logo').classList.remove("animatebannerlogo")
+          document.getElementById('banner').classList.remove("animatebanner")
+        }, 300);
+    } catch (error) {
+       console.log(error);
+    }
       setLogo(movies.logo)
   }
 
   return (
     <header
       className="banner"
+      id="banner"
       style={{
         backgroundSize: "cover",
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies?.backdrop_path}")`,
@@ -217,7 +227,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
 
             {!isBannerInMiddle && logo === "" && logo === null && logo === undefined ? (
               <div className="n-series">
-                <img src={Logo} alt="" className="n-logo" />
+                <img src={Logo} alt="" className="n-logo" loading="lazy" crossOrigin="anonymous" />
                 <p className="n-text">SERIES</p>
               </div>
             ) : (
@@ -225,7 +235,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             )}
             {
               logo !== "" && logo !== null && logo !== undefined ? (
-                <img src={base_image_url + logo} alt="" className="logomoviesoonbanner" loading="lazy" />
+                <img src={base_image_url + logo} alt="" className="logomoviesoonbanner" id="logo" loading="lazy" crossOrigin="anonymous" />
               ): (
                 <h1
               className={
@@ -252,8 +262,8 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             {
                   genres !== [] ? (
                     
-                    genres.map((genreItem) => (
-                       <>{genreItem}<div className="red-dot-src-soon"></div></>
+                    genres.map((genreItem, index) => (
+                       <React.Fragment key={index}>{genreItem}<div className="red-dot-src-soon"></div></React.Fragment>
                       ))
                     
                   ): ""

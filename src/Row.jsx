@@ -61,7 +61,8 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
       >
         {isTopTen
           ? movies.slice(0, 10).map((movie, index) => (
-              <SwiperSlide
+              <SwiperSlide 
+                key={movie.id}
                 className={isLaregeRow ? "swiper_slide_large" : "swiper_slide"}
               >
                 <div className="rated">
@@ -71,7 +72,6 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
                 
                   <img
                     id={movie.id+"id"}
-                    key={movie.id}
                     src={`${base_image_url}${setMovieImage(
                       isLaregeRow,
                       movie
@@ -80,7 +80,7 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
                     className="row__poster_ten"
                     onClick={() => movieClick(movie)}
                     loading="lazy"
-                    crossOrigin="Anonymous"
+                    crossOrigin="anonymous"
                   />
                  
                 </div>
@@ -89,10 +89,11 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
           : movies.map((movie) => (
               <SwiperSlide
                 className={isLaregeRow ? "swiper_slide_large" : "swiper_slide"}
+                key={movie.id}
               >
                 <div className="rated">
                   <img
-                    key={movie.id}
+                   
                     src={`${base_image_url}${setMovieImage(
                       isLaregeRow,
                       movie,
@@ -103,7 +104,7 @@ function Row({ title, fetchURL, isLaregeRow, isTopTen, isOnlyOnNetflix, type  })
                     className="row__poster"
                     onClick={() => movieClick(movie)}
                     loading="lazy"
-                    crossOrigin="Anonymous"
+                    crossOrigin="anonymous"
                   />
                 </div>
               </SwiperSlide>

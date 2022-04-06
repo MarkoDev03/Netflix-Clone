@@ -234,7 +234,8 @@ function searchAPI() {
               className="whoswathcing"
               width={30}
               height={30}
-              
+              loading="lazy"
+              crossOrigin="anonymous"
               alt=""
             />
           </Link>
@@ -267,7 +268,7 @@ function searchAPI() {
         </div>
       )}
         <div className="list-wrapper" id="list">
-          {results.length > 0 ? (
+          {results?.length > 0 ? (
           results.map((item) => (
             <img
               src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
@@ -276,6 +277,7 @@ function searchAPI() {
               key={item.id}
               onClick={() => {MovieClick(item)}}
               loading="lazy"
+              crossOrigin="anonymous"
             />
           )))
          :
@@ -290,6 +292,7 @@ function searchAPI() {
                 alt=""
                 className="movie-his" 
                 loading="lazy"
+                crossOrigin="anonymous"
               />
               <div className="text-style">
               <h4> {item?.original_name ||item?.original_title ||item?.name || item?.title}</h4>
@@ -297,8 +300,8 @@ function searchAPI() {
                 {
                   item.genresData !== undefined ? (
                     
-                      item.genresData.map((genreItem) => (
-                       <>{genreItem}<div className="red-dot-src"></div></>
+                      item.genresData.map((genreItem, index) => (
+                       <React.Fragment  key={index}>{genreItem}<div className="red-dot-src"></div></React.Fragment>
                       ))
                     
                   ): ""
