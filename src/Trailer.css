@@ -208,6 +208,7 @@
    overflow: hidden;
    max-height: 3.6em;
    line-height: 1.8em;
+   transition: 285ms ease-in-out;
    text-align: left;
 }
 .overview-a{
@@ -221,7 +222,9 @@
    word-wrap: break-word;
    overflow: hidden;
    max-height: 30.6em;
-   line-height: 1.8em
+   line-height: 1.8em;
+   transition: 285ms ease-in-out;
+   text-align: left;
 }
 .dot{
     margin-left: 10px;

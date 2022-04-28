@@ -42,6 +42,7 @@
     justify-content: space-around;
     align-items: center;
     margin-left: 15px;
+    cursor: pointer;
 }
 .list-wrapper{
     width: 100%;
@@ -55,7 +56,15 @@
     border-radius: 15px;
     height: auto;
     background-color: grey;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
 }
+
+.movie:hover {
+    transform: scale(1.08);
+    transition: 200ms ease-in;
+}
+
 .headLine{
     font-family: "Poppins", sans-serif;
 }

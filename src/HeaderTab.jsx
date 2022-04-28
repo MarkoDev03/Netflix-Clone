@@ -15,7 +15,7 @@ function HeaderTab({headline}) {
     return (
         <div>
              <header className="float-header" style={{ zIndex: "999999" }}>
-        <div className="flex">
+        <div className="flex" style={{cursor: "pointer"}}>
           <p className="headline" style={{ fontSize: "21px" }}>
             {headline}
           </p>
@@ -24,7 +24,7 @@ function HeaderTab({headline}) {
           <FontAwesomeIcon icon={faRss} style={{opacity:'0'}} />
           <Search size={24} color='white'  onClick={() => {
               history.push("/search");
-            }}/>
+            }}  style={{cursor: "pointer"}} />
           <div className="user">
             <Link to={`/profile/${auth.currentUser.uid}/settings`}>
               <img

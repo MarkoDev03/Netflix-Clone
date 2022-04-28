@@ -153,7 +153,7 @@ function Avatar() {
       <div style={{ height: "60px" }}></div>
       {rows.map((row) => (
         <div className="avatar-row" key={row.txt}>
-          <h2 className="row-title" key={row.txt}>{row.txt}</h2>
+          <h2 className="row-title">{row.txt}</h2>
           <Swiper
             slidesPerView={6}
             spaceBetween={30}

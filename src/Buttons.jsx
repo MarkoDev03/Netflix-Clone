@@ -14,10 +14,10 @@ function Buttons({ classBtn, movie }) {
     var user = auth.currentUser;
     var ids = [];
 
-    if (movie.id !== undefined) {
+    if (movie?.id !== undefined) {
       if (user) {
         database.ref("list/" + user.uid + "/").on("child_added", (snapshot) => {
-          if (parseInt(snapshot.val().id) === movie.id) {
+          if (parseInt(snapshot.val().id) === movie?.id) {
             setAdded(true);
             ids.push(snapshot.val().id);
           } else {
@@ -26,7 +26,7 @@ function Buttons({ classBtn, movie }) {
         });
 
         for (const id of ids) {
-          console.log(id);
+          
           if (id === movie.id) {
             setAdded(true);
           } else {

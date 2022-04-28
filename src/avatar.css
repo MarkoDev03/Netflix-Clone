@@ -25,5 +25,11 @@
     transition: transform 350ms;
     border-radius: 5px;
     cursor: grab;
-    animation: fader 400ms;
+    /* animation: fader 400ms; */
+    transition: 200ms ease-in-out;
+}
+
+.swiper_slide_avatar:hover {
+  transform: scale(1.08);
+  transition: 200ms ease-in;
 }

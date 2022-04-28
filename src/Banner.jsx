@@ -102,18 +102,18 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
 
         if (localStorage.getItem("bannerMovies")) {
           let getLogos = JSON.parse(localStorage.getItem("bannerMovies"));
-          const item = getLogos.find((item) => item.id === movies.id);
+          const item = getLogos.find((item) => item.id === movies?.id);
           if (item !== undefined) {
             setLogo(item.logo)
           }
         } else {
     
-        fetch(`https://api.themoviedb.org/3/movie/${movies.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
+        fetch(`https://api.themoviedb.org/3/movie/${movies?.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
         .then((response) => response.json())
         .then((data) => {
          
          if (data?.logos?.length > 0) {
-           setLogo(data.logos[0].file_path)
+           setLogo(data?.logos[0].file_path)
           } else {
             setMovies(
               allMovies[
@@ -154,7 +154,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
     }
     
     getGeners()
-  }, [movies.genre_ids, movies])
+  }, [movies?.genre_ids, movies])
 
 
    useLayoutEffect(() => {
@@ -165,7 +165,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
         fetch(`https://api.themoviedb.org/3/movie/${movie.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
          .then((response) => response.json())
         .then((data) => {
-     if (data.logos.length > 0) {
+     if (data?.logos.length > 0) {
         let dataFound = movie;
         dataFound.logo = data.logos[0].file_path;
         getResults.push(dataFound)
@@ -187,7 +187,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
         Math.floor(Math.random() * bannerMovies.length)
       ]
     );
-   
+
     try {
         document.getElementById('logo').classList.add("animatebannerlogo")
         document.getElementById('banner').classList.add("animatebanner")

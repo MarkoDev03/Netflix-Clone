@@ -12,7 +12,7 @@ function ComingSoonComponent({movie}) {
      fetch(`https://api.themoviedb.org/3/movie/${movie.id}/images?api_key=1ac954f3a80a366794602b75222bbf8e`)
    .then((response) => response.json())
    .then((data) => {
-    setLogo(data.logos[0].file_path)
+    setLogo(data?.logos[0]?.file_path)
    })
     }, [movie.id])
 

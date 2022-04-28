@@ -130,6 +130,8 @@
     font-size: 15px;
     font-weight: 100;
     height: fit-content;
+    cursor: pointer;
+    transition: 285ms ease-in-out;
 }
 
 .play-his{

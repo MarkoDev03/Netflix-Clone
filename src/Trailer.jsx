@@ -78,7 +78,6 @@ function Trailer({movies}) {
       .then((data) => {
        
        if (data?.logos?.length > 0) {
-         console.log(data.logos[0].file_path);
          setLogo(data.logos[0].file_path)
         }
       })
