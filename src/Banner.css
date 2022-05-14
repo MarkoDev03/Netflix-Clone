@@ -204,8 +204,20 @@
     width: 80%;
     height: auto;
     max-height: 50px;
-    display: none;
+    display: flex;
+
   }
+
+.movie_desc_banner{
+  text-align: left;
+  width: 500px;
+  max-width: 500px;
+  height: auto;
+  max-height: 50px;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
   .banner_title {
     font-size: 46px;
     margin-bottom: -10px;

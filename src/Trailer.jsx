@@ -66,7 +66,6 @@ function Trailer({movies}) {
   useLayoutEffect(() => {
     if (movies === "") {
       //setMoviesTrailer("");
-
     } else {
       setMoviesTrailer(movies);
       setPayload(true)

@@ -13,8 +13,9 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
   const [movies, setMovies] = useState({genre_ids:[]});
   const [logo, setLogo] = useState("")
   const [genres, setGenres] = useState(["Horror", "Action", "Drama", "Western"]); 
-  var [allMovies, setAllMovies] = useState([]);
-  var [bannerMovies, setBannerMovies] = useState([]);
+  const [allMovies, setAllMovies] = useState([]);
+  const [bannerMovies, setBannerMovies] = useState([]);
+  const [overview, setOverview] = useState("");
 
     useLayoutEffect(() => {
 
@@ -83,12 +84,16 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             getLogos[
                      Math.floor(Math.random() * getLogos.length)
                 ]);
+                // setOverview("")
+                // setOverview(movies?.overview || "")
           } else {
 
            setMovies(
              moviesIn[
                       Math.floor(Math.random() * moviesIn.length)
                  ]);
+                //  setOverview("")
+                //  setOverview(movies?.overview || "")
                 }
         }
     
@@ -120,6 +125,8 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
                 Math.floor(Math.random() * allMovies.length)
               ]
             );
+            setOverview("")
+            setOverview(movies?.overview || "")
             return;
           }
           
@@ -187,6 +194,8 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
         Math.floor(Math.random() * bannerMovies.length)
       ]
     );
+    setOverview("")
+    setOverview(movies?.overview || "")
 
     try {
         document.getElementById('logo').classList.add("animatebannerlogo")
@@ -248,15 +257,15 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
             </h1>
               )
           }
-           {/* <h1
+           {/* <span
             className={
               !isBannerInMiddle && window.innerWidth < 900
                 ? "fade-none"
-                : "banner_description"
+                : "movie_desc_banner"
             }
           >
-            {movies?.overview || ""} 
-          </h1> */}
+            {overview} 
+          </span> */}
           </div>
           <span className="genres-mapping mapbanner">
             {
