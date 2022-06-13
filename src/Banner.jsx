@@ -15,7 +15,7 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
   const [genres, setGenres] = useState(["Horror", "Action", "Drama", "Western"]); 
   const [allMovies, setAllMovies] = useState([]);
   const [bannerMovies, setBannerMovies] = useState([]);
-  const [overview, setOverview] = useState("");
+  //const [overview, setOverview] = useState("");
 
     useLayoutEffect(() => {
 
@@ -125,8 +125,8 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
                 Math.floor(Math.random() * allMovies.length)
               ]
             );
-            setOverview("")
-            setOverview(movies?.overview || "")
+            // setOverview("")
+            // setOverview(movies?.overview || "")
             return;
           }
           
@@ -194,8 +194,8 @@ function Banner({ title, fetchURL, isBannerInMiddle }) {
         Math.floor(Math.random() * bannerMovies.length)
       ]
     );
-    setOverview("")
-    setOverview(movies?.overview || "")
+    // setOverview("")
+    // setOverview(movies?.overview || "")
 
     try {
         document.getElementById('logo').classList.add("animatebannerlogo")

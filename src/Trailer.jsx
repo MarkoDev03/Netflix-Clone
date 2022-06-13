@@ -61,7 +61,7 @@ function Trailer({movies}) {
   const [loadtext, setLoad] = useState(false);
   const [list, setList] = useState(false);
   const [payload, setPayload] = useState(false);
-  const [logo, setLogo] = useState(null);
+  const [logo, setLogo] = useState(null); 
 
   useLayoutEffect(() => {
     if (movies === "") {
